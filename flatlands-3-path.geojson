@@ -1,8 +1,8 @@
 {
 "type": "FeatureCollection",
 "name": "flatlands-3-path",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::3857" } },
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "begin": 1, "end": 2 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -8224161.587485048919916, 4962877.896752750501037 ], [ -8223675.444833092391491, 4961996.300933226011693 ] ] ] } }
+{ "type": "Feature", "properties": { "begin": 1, "end": 2 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -73.878900531064858, 40.663799281396535 ], [ -73.874533437319712, 40.657791696698382 ] ] ] } }
 ]
 }

@@ -1,9 +1,9 @@
 {
 "type": "FeatureCollection",
 "name": "flatlands-3-stations",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::3857" } },
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "ID": 1 }, "geometry": { "type": "Point", "coordinates": [ -8224161.587485048919916, 4962877.896752750501037 ] } },
-{ "type": "Feature", "properties": { "ID": 2 }, "geometry": { "type": "Point", "coordinates": [ -8223675.444833092391491, 4961996.300933226011693 ] } }
+{ "type": "Feature", "properties": { "ID": 1 }, "geometry": { "type": "Point", "coordinates": [ -73.878900531064858, 40.663799281396535 ] } },
+{ "type": "Feature", "properties": { "ID": 2 }, "geometry": { "type": "Point", "coordinates": [ -73.874533437319712, 40.657791696698382 ] } }
 ]
 }
