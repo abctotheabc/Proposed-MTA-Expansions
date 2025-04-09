@@ -1,0 +1,14 @@
+{
+"type": "FeatureCollection",
+"name": "tribx-stations",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::3857" } },
+"features": [
+{ "type": "Feature", "properties": { }, "geometry": { "type": "Point", "coordinates": [ -8218014.29021592438221, 4991789.578438034281135 ] } },
+{ "type": "Feature", "properties": { }, "geometry": { "type": "Point", "coordinates": [ -8220158.50567989051342, 4990333.154638294130564 ] } },
+{ "type": "Feature", "properties": { }, "geometry": { "type": "Point", "coordinates": [ -8222238.769654313102365, 4989067.014390042051673 ] } },
+{ "type": "Feature", "properties": { }, "geometry": { "type": "Point", "coordinates": [ -8225412.141744317486882, 4985791.581355863250792 ] } },
+{ "type": "Feature", "properties": { }, "geometry": { "type": "Point", "coordinates": [ -8229328.394768330268562, 4981284.318595885299146 ] } },
+{ "type": "Feature", "properties": { }, "geometry": { "type": "Point", "coordinates": [ -8227882.982105553150177, 4979173.001102935522795 ] } },
+{ "type": "Feature", "properties": { }, "geometry": { "type": "Point", "coordinates": [ -8226440.571003135293722, 4976156.461882210336626 ] } }
+]
+}

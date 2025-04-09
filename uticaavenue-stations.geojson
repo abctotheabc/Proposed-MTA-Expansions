@@ -1,0 +1,14 @@
+{
+"type": "FeatureCollection",
+"name": "uticaavenue-stations",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::3857" } },
+"features": [
+{ "type": "Feature", "properties": { "ID": 7 }, "geometry": { "type": "Point", "coordinates": [ -8229009.528336619026959, 4954975.508128433488309 ] } },
+{ "type": "Feature", "properties": { "ID": 1 }, "geometry": { "type": "Point", "coordinates": [ -8229987.13447227049619, 4962254.901476887054741 ] } },
+{ "type": "Feature", "properties": { "ID": 2 }, "geometry": { "type": "Point", "coordinates": [ -8229890.51840294804424, 4961110.788653587922454 ] } },
+{ "type": "Feature", "properties": { "ID": 3 }, "geometry": { "type": "Point", "coordinates": [ -8229792.038600998930633, 4959888.512695323675871 ] } },
+{ "type": "Feature", "properties": { "ID": 4 }, "geometry": { "type": "Point", "coordinates": [ -8229682.324835442006588, 4958530.781784108839929 ] } },
+{ "type": "Feature", "properties": { "ID": 5 }, "geometry": { "type": "Point", "coordinates": [ -8229585.935814286582172, 4957370.278264823369682 ] } },
+{ "type": "Feature", "properties": { "ID": 6 }, "geometry": { "type": "Point", "coordinates": [ -8229497.556212464347482, 4956206.722026686184108 ] } }
+]
+}

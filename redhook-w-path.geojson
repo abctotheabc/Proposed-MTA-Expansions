@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "redhook-w-path",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::3857" } },
+"features": [
+{ "type": "Feature", "properties": { "begin": 1, "end": 3 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -8238310.407752161845565, 4964394.188398382626474 ], [ -8238732.919119854457676, 4965253.71700406447053 ], [ -8237798.265653096139431, 4966396.595093283802271 ] ] ] } }
+]
+}
