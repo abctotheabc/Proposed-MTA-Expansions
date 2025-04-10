@@ -4,8 +4,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello, World! </title>
+  <title>Proposed MTA Network Expansions </title>
 </head>
+
+
+<!--adding the css, java, and mapbox code into my html-->
 
 <body>
     <div id="map-container"></div>
@@ -13,6 +16,24 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js"></script>
     <script src="scripts.js"></script>
+
+
+<!--text for the dialogue box that shows when first entering page with the java code to dismiss it with the button-->
+
+    <div id="welcome-dialog" class="dialog-overlay">
+        <div class="dialog-box">
+          <h2>Welcome!</h2>
+          <p>This map serves as a visual exploration of proposed expansions to NYC's MTA network that have not been constructed and/or approved.</p>
+          <p>Click on the buttons within the legend to animate the proposed line. </p>
+          <p>FIRST ITERATION DRAFT APRIL 10 2025</p>
+          <button onclick="dismissDialog()">Got it!</button>
+        </div>
+      </div>
+
+
+
+
+
 </body>
 
 </html>

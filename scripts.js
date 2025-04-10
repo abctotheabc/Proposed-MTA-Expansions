@@ -1,27 +1,32 @@
+// javacode that connects with HTML to allow dialog box to be dismissed
 
-// adding mapbox below and navigation controls
+function dismissDialog() {
+    document.getElementById('welcome-dialog').style.display = 'none';
+  }
+
+// adding mapbox below and navigation controls, locked in for just a section of NY/CT/NJ so people don't zoom to other places
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYWJjOTM4OCIsImEiOiJjbTkxeXp0ZzEwNmg2MmpuN283eWFudDZnIn0.MTMyJc6JPqAIlKGjW8JSvg'
 
 const map = new mapboxgl.Map({
 container: 'map-container',
+    style: 'mapbox://styles/mapbox/light-v11',
     center: [-73.97744, 40.71595],
     zoom: 10.26,
     bearing: 0,
     pitch: 0,
     maxBounds: [
-        [-74.41746, 40.57397], // Southwest corner
-        [-73.53742, 40.85763]  // Northeast corner
+        [-74.41746, 40.57397],
+        [-73.53742, 40.85763]
     ],
-    minZoom: 10.26 // prevent zooming out farther than this
+    minZoom: 10.26
 })
+
 
 map.addControl(new mapboxgl.NavigationControl(), 'top-left');
 
-// ✅ Fullscreen toggle
 map.addControl(new mapboxgl.FullscreenControl(), 'top-left');
 
-// ✅ Scale bar
 map.addControl(new mapboxgl.ScaleControl({
   maxWidth: 100,
   unit: 'imperial'
@@ -29,81 +34,49 @@ map.addControl(new mapboxgl.ScaleControl({
 
 
 
-
-
-    // adding a geojson file i created below following the path of a proposed subway line
-
     map.on('load', () => {
-        map.addSource('ibx-express', {
-          type: 'geojson',
-          data: 'ibx-path.geojson'
-        });
-      
-        map.addLayer({
-          id: 'ibx-express-line',
-          type: 'line',
-          source: 'ibx-express',
-          paint: {
-            'line-color': '#9b8ed8',
-            'line-width': 4
-          }
-        });
+
+        
+
+
+// i built all of these geojson files i'm adding in to my code, with the path for proposed MTA lines and their stations
+// adding the IBX line below
+
+map.addSource('ibx-path', {
+    type: 'geojson',
+    data: 'ibx-path.geojson'
+  });
+
+  map.addSource('ibx-stations', {
+    type: 'geojson',
+    data: 'ibx-stations.geojson'
+  });
+
+  map.addLayer({
+    id: 'ibx-line',
+    type: 'line',
+    source: 'ibx-path',
+    paint: {
+      'line-color': '#9b8ed8',
+      'line-width': 3
+    }
+  });
+
+  map.addLayer({
+    id: 'ibx-stations',
+    type: 'circle',
+    source: 'ibx-stations',
+    paint: {
+      'circle-color': '#9b8ed8',
+      'circle-width': 3
+    }
+  });
 
 
 
 
 
-        // adding overlay dashed line for animation below
-
-      map.addLayer({
-        id: 'ibx-express-dashed',
-        type: 'line',
-        source: 'ibx-express',
-        paint: {
-          'line-color': '#ffffff',
-          'line-width': 4,
-          'line-dasharray': [2, 2]
-        }
-      });
-
-
-
-
-
-
-
-
-// adding stations below and their symbol
-
-    map.addSource('ibx-stops', {
-      type: 'geojson',
-      data: 'ibx-stations.geojson'
-    });
-
-    map.loadImage('ibx.png', (error, image) => {
-        if (error) throw error;
-
-        if (!map.hasImage('station-icon')) {
-            map.addImage('station-icon', image);
-          }
-
-
-        map.addLayer({
-      id: 'ibx-stop-icons',
-      type: 'symbol',
-      source: 'ibx-stops',
-      layout: {
-        'icon-image': 'station-icon',
-        'icon-size': 0.02
-          }
-        });
-    });   
-
-
-
-
-
- // Add QueensLink line
+// adding the QueensLink line below
  map.addSource('queenslink-path', {
     type: 'geojson',
     data: 'queenslink-path.geojson'
@@ -133,22 +106,13 @@ map.addControl(new mapboxgl.ScaleControl({
       'circle-width': 3
     }
   });
-  map.addLayer({
-    id: 'queenslink-dashed',
-    type: 'line',
-    source: 'queenslink-path',
-    paint: {
-      'line-color': '#ffffff',
-      'line-width': 4,
-      'line-dasharray': [2, 2]
-    }
-  });
 
 
 
 
 
-   // Add Triborough line
+
+// adding the Triborough line below
   map.addSource('tribx-path', {
     type: 'geojson',
     data: 'tribx-path.geojson'
@@ -179,22 +143,13 @@ map.addControl(new mapboxgl.ScaleControl({
     }
   });
 
-  map.addLayer({
-    id: 'tribx-dashed',
-    type: 'line',
-    source: 'tribx-path',
-    paint: {
-      'line-color': '#ffffff',
-      'line-width': 4,
-      'line-dasharray': [2, 2]
-    }
-  });
 
 
 
 
 
-     // Add Utica Avenue line
+
+// adding the Utica Avenue line below
      map.addSource('uticaavenue-path', {
         type: 'geojson',
         data: 'uticaavenue-path.geojson'
@@ -224,23 +179,14 @@ map.addControl(new mapboxgl.ScaleControl({
           'circle-width': 3
         }
       });
-      map.addLayer({
-        id: 'uticaavenue-dashed',
-        type: 'line',
-        source: 'uticaavenue-path',
-        paint: {
-          'line-color': '#ffffff',
-          'line-width': 4,
-          'line-dasharray': [2, 2]
-        }
-      });
+   
 
 
 
 
 
 
-     // Add Second Avenue line
+// adding the Second Avenue line below
      map.addSource('secondavenue-path', {
         type: 'geojson',
         data: 'secondavenue-path.geojson'
@@ -270,23 +216,14 @@ map.addControl(new mapboxgl.ScaleControl({
           'circle-width': 3
         }
       });
-      map.addLayer({
-        id: 'secondavenue-dashed',
-        type: 'line',
-        source: 'secondavenue-path',
-        paint: {
-          'line-color': '#ffffff',
-          'line-width': 4,
-          'line-dasharray': [2, 2]
-        }
-      });
+    
 
 
 
 
 
 
-     // Add Red Hook W Extension line
+// adding the extension of the W into Red Hook line below
      map.addSource('redhook-w-path', {
         type: 'geojson',
         data: 'redhook-w-path.geojson'
@@ -316,16 +253,7 @@ map.addControl(new mapboxgl.ScaleControl({
           'circle-width': 3
         }
       });
-      map.addLayer({
-        id: 'redhook-w-dashed',
-        type: 'line',
-        source: 'redhook-w-path',
-        paint: {
-          'line-color': '#ffffff',
-          'line-width': 4,
-          'line-dasharray': [2, 2]
-        }
-      });
+ 
 
 
 
@@ -335,7 +263,7 @@ map.addControl(new mapboxgl.ScaleControl({
 
 
 
-     // Add Flatlands 3 Extension
+// adding the extension of the 3 into Flatlands line below
      map.addSource('flatlands-3-path', {
         type: 'geojson',
         data: 'flatlands-3-path.geojson'
@@ -365,22 +293,13 @@ map.addControl(new mapboxgl.ScaleControl({
           'circle-width': 3
         }
       });
-      map.addLayer({
-        id: 'flatlands-3-dashed',
-        type: 'line',
-        source: 'flatlands-3-path',
-        paint: {
-          'line-color': '#ffffff',
-          'line-width': 4,
-          'line-dasharray': [2, 2]
-        }
-      });
+
 
 
 
       
 
-// adding animation below that applies to all lines
+// adding ant animation below that applies to all lines that will show a dashed line in comparision to static color
 
 const dashArraySequence = [
     [0, 4, 3],
@@ -401,25 +320,17 @@ const dashArraySequence = [
 
   let step = 0;
 
-const animatedLineIds = [
-  'ibx-express-dashed',
-  'uticaavenue-dashed',
-  'tribx-dashed',
-  'queenslink-dashed',
-  'secondavenue-dashed',
-  'flatlands-3-dashed',
-  'redhook-w-dashed'
-];
+  const animatedLayers = {};
 
 function animateDashArray(timestamp) {
   const newStep = Math.floor((timestamp / 50) % dashArraySequence.length);
 
   if (newStep !== step) {
-    animatedLineIds.forEach(id => {
-      if (map.getLayer(id)) {
-        map.setPaintProperty(id, 'line-dasharray', dashArraySequence[newStep]);
-      }
-    });
+    Object.keys(animatedLayers).forEach(id => {
+        if (map.getLayer(id)) {
+          map.setPaintProperty(id, 'line-dasharray', dashArraySequence[newStep]);
+        }
+      });
     step = newStep;
   }
 
@@ -429,4 +340,91 @@ function animateDashArray(timestamp) {
 animateDashArray(0);
 
 
+
+// legend with labels to click to animate
+const legendItems = [
+    { id: 'ibx-path', label: 'Interborough Express', color: '#9b8ed8' },
+    { id: 'uticaavenue-path', label: 'Utica Avenue', color: '#00933c' },
+    { id: 'secondavenue-path', label: 'Second Avenue', color: '#00add0' },
+    { id: 'flatlands-3-path', label: 'Flatlands 3 Extension', color: '#ee352e' },
+    { id: 'redhook-w-path', label: 'Red Hook W', color: '#fccc0a' },
+    { id: 'tribx-path', label: 'Triborough RX', color: '#fbae34' },
+    { id: 'queenslink-path', label: 'QueensLink', color: '#ff6324' }
+  ];
+  
+
+
+// collapsible legend container, toggle button, and to show or not show legend depending on clicking the button
+const legendContainer = document.createElement('div');
+legendContainer.id = 'legend-container';
+
+const toggleButton = document.createElement('button');
+toggleButton.id = 'legend-toggle';
+toggleButton.textContent = 'Toggle Legend';
+
+toggleButton.addEventListener('click', () => {
+  legend.classList.toggle('collapsed');
+});
+
+// appending the button to the container
+legendContainer.appendChild(toggleButton);
+
+  const legend = document.createElement('div');
+  legend.id = 'map-legend';
+  
+  legendItems.forEach(item => {
+    const btn = document.createElement('button');
+    btn.className = 'legend-button';
+    btn.textContent = item.label;
+    btn.style.backgroundColor = item.color;
+  
+    btn.addEventListener('click', () => {
+      const dashedId = `${item.id}-dashed`;
+      
+      const isAlreadyActive = animatedLayers[dashedId];
+  
+      Object.keys(animatedLayers).forEach(id => {
+        if (map.getLayer(id)) {
+          map.removeLayer(id);
+        }
+      });
+      Object.keys(animatedLayers).forEach(id => delete animatedLayers[id]);
+  
+      // when you click the button, it shows selected and nothing else, when you click it again, it does not show toggled
+      document.querySelectorAll('.legend-button').forEach(b => b.classList.remove('selected'));
+  
+      if (isAlreadyActive) return;
+  
+      // adds dashed line for animation purposes
+      const beforeId = map.getLayer(`${item.id}-stations`) ? `${item.id}-stations` : undefined;
+
+      const stationLayerId = item.id.replace('path', 'stations');
+
+      if (!map.getLayer(dashedId)) {
+        const beforeId = map.getLayer(stationLayerId) ? stationLayerId : undefined;
+      
+        map.addLayer({
+          id: dashedId,
+          type: 'line',
+          source: item.id,
+          paint: {
+            'line-color': '#ffffff',
+            'line-width': 4,
+            'line-dasharray': [2, 2]
+          }
+        }, beforeId);
+      }
+  
+      animatedLayers[dashedId] = true;
+      btn.classList.add('selected');
+    });
+  
+    legend.appendChild(btn);
+  });
+  
+  legendContainer.appendChild(legend);
+document.body.appendChild(legendContainer);
+
+
+  
 });
