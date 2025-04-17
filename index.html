@@ -16,24 +16,47 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js"></script>
     <script src="scripts.js"></script>
+    <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+
+    <!--i have the turf script above for what i'd like to achieve in the third iteration of this which would include flying-->
 
 
 <!--text for the dialogue box that shows when first entering page with the java code to dismiss it with the button-->
 
-    <div id="welcome-dialog" class="dialog-overlay">
-        <div class="dialog-box">
-          <h2>Welcome!</h2>
-          <p>This map serves as a visual exploration of proposed expansions to NYC's MTA network that have not been constructed and/or approved.</p>
-          <p>Click on the buttons within the legend to animate the proposed line. </p>
-          <p>FIRST ITERATION DRAFT APRIL 10 2025</p>
-          <button onclick="dismissDialog()">Got it!</button>
+<div id="welcome-dialog" class="dialog-overlay">
+  <div class="dialog-box">
+    <h2>🗺️ NYC Transit Futures: Explore the Possibilities</h2>
+    <p><strong>Welcome to the NYC Transit Expansion Map.</strong></p>
+    <p>This interactive tool highlights major proposed subway projects across New York City — including the Interborough Express, Second Avenue Subway, QueensLink, and more. Each route features data-driven context, maps of walkable access, and insights into demographics, population size, income, and other key metrics for the area around the proposed line.</p>
+    <p><strong>👆 Click a line in the legend to begin exploring.</strong> 
+    <p>Use the expandable info panels to learn more about each project’s vision and footprint.</p>
+    <p>SECOND ITERATION DRAFT APRIL 17 2025</p>
+    <button onclick="dismissDialog()">Got it!</button>
+  </div>
+</div>
+
+
+
+      <!--this is for the 3 info panels every button activates-->
+
+      <div id="info-box" class="hidden">
+        <span id="info-close">&times;</span>
+        <div id="info-content">
+          <div id="panel-1" class="info-panel">
+            <h2 id="info-title">Project Info</h2>
+            <p id="info-content-1">This is the first panel.</p>
+            <button class="expand-btn" id="expand-1">→</button>
+          </div>
+          <div id="panel-2" class="info-panel hidden">
+            <p id="info-content-2">This is the second panel.</p>
+            <button class="collapse-btn" id="collapse-1">←</button>
+            <button class="expand-btn" id="expand-2">→</button>
+          </div>
+          <div id="panel-3" class="info-panel hidden">
+            <p id="info-content-3">This is the third panel.</p>
+            <button class="collapse-btn" id="collapse-2">←</button>
+          </div>
         </div>
       </div>
-
-
-
-
-
-</body>
 
 </html>
