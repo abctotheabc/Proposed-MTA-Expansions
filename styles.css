@@ -313,6 +313,7 @@
 }
 
 #page-title-box {
+  display: none;
   position: fixed;
   top: 3px;
   left: 50%;

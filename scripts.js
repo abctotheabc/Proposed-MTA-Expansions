@@ -3,6 +3,7 @@
 function dismissDialog() {
   const dialog = document.getElementById('welcome-dialog');
   dialog.classList.add('fade-out');
+  document.getElementById('page-title-box').style.display = 'block';
 
   setTimeout(() => {
     dialog.style.display = 'none';
