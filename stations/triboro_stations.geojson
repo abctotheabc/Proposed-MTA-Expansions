@@ -1,0 +1,15 @@
+{
+"type": "FeatureCollection",
+"name": "triboro_stations",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "ID": 1, "station_name": "Co-Op City" }, "geometry": { "type": "Point", "coordinates": [ -73.823678420136062, 40.86051636738992 ] } },
+{ "type": "Feature", "properties": { "ID": 2, "station_name": "Eastchester Rd - Morris Park" }, "geometry": { "type": "Point", "coordinates": [ -73.84294023537332, 40.850620686792837 ] } },
+{ "type": "Feature", "properties": { "ID": 3, "station_name": "Parkchester" }, "geometry": { "type": "Point", "coordinates": [ -73.861627564605584, 40.84201668791502 ] } },
+{ "type": "Feature", "properties": { "ID": 4, "station_name": "Hunts Point" }, "geometry": { "type": "Point", "coordinates": [ -73.890134451112075, 40.819753448030781 ] } },
+{ "type": "Feature", "properties": { "ID": 5, "station_name": "Randall's Island" }, "geometry": { "type": "Point", "coordinates": [ -73.925314750591582, 40.789105195775875 ] } },
+{ "type": "Feature", "properties": { "ID": 6, "station_name": "Astoria-Ditmars Blvd" }, "geometry": { "type": "Point", "coordinates": [ -73.912330387723244, 40.774743900859875 ] } },
+{ "type": "Feature", "properties": { "ID": 7, "station_name": "Northern Boulevard" }, "geometry": { "type": "Point", "coordinates": [ -73.899372988330398, 40.754219851822796 ] } },
+{ "type": "Feature", "properties": { "ID": 8, "station_name": "Jackson Heights" }, "geometry": { "type": "Point", "coordinates": [ -73.894492681796351, 40.746525808197411 ] } }
+]
+}

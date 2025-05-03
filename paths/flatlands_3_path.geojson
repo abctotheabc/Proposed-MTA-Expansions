@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "flatlands_3_path",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -73.878900531064858, 40.663799281396535 ], [ -73.874533437319712, 40.657791696698382 ] ] ] } },
+{ "type": "Feature", "properties": { }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -73.884072165077598, 40.666248657909442 ], [ -73.882488843701253, 40.666468310010309 ], [ -73.881724004060345, 40.666759956037694 ], [ -73.881296963239848, 40.66694889666914 ], [ -73.878987783100996, 40.663842980245725 ] ] ] } }
+]
+}

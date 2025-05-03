@@ -1,276 +1,350 @@
 
-  /* styling for body to get full screen */
-
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  #map-container {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-  }
-  
-  /* styling for the dialogue box that pops up when you first open the page and the button in it */
-
-  .dialog-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-  }
-  
-  .dialog-box {
-    background-color: white;
-    padding: 24px 32px;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 0 20px rgba(0,0,0,0.25);
-    max-width: 400px;
-  }
-  
-  .dialog-box h2 {
-    margin-top: 0;
-  }
-  
-  .dialog-box button {
-    margin-top: 20px;
-    padding: 10px 16px;
-    font-size: 14px;
-    border: none;
-    background-color: #007aff;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  
-  .dialog-box button:hover {
-    background-color: #005bb5;
-  }
-  
- 
-  /* styling for the container that holds the legend of all the subway lines and the toggle button */
-
-  #legend-container {
-    position: absolute;
-    top: 50px;
-    right: 10px;
-    z-index: 1;
-    font-family: Arial, sans-serif;
-  }
-  
-  #legend-toggle {
-    position: absolute;
-    top: -40px;
-    right: 10px;
-    z-index: 2; 
-    background: #333;
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-bottom: 8px;
+    @font-face {
+      font-family: 'HelveticaBold';
+      src: url('fonts/Helvetica-Bold.ttf') format('truetype');
+      font-weight: bold;
+      font-style: normal;
+    }
     
-  }
-  
-  #legend-toggle:hover {
-    background-color: #555;
-  }
-  
-  /* styling for the legend and adding the transition for when you click the toggle and it collapses */
+    @font-face {
+      font-family: 'Helvetica';
+      src: url('fonts/Helvetica.ttf') format('truetype');
+      font-weight: bold;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: 'Gotham';
+      src: url('fonts/Gotham-Book.otf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
 
-  #map-legend {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: white;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  #map-legend.collapsed {
-    opacity: 0;
-    transform: translateY(-20px);
-    pointer-events: none; 
-  }
-  
+    @font-face {
+      font-family: 'GothamBold';
+      src: url('fonts/Gotham-Medium.otf') format('truetype');
+      font-weight: bold;
+      font-style: normal;
+    }
+    
+     
+     
+     /* styling for body to get full screen */
+    
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      
+      #map-container {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+      }
+      
+      /* styling for the dialogue box that pops up when you first open the page and the button in it */
+    
+      .dialog-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 999;
+        transition: opacity 0.8s ease, visibility 0.8s ease;
+      }
+      
+      .dialog-box {
+        background: url('images/intro_map.png') center center / cover no-repeat;
+        background-size: 300%;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Gotham';
+      }
+      
+      .intro-text {
+        background-color: #fff8e1;
+        padding: 15px;
+        position: fixed;
+        border-radius: 12px;
+        max-width: 350px;
+        width: 90%;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+        text-align: center;
+        font-family: 'Gotham';
+      }
+      
+      .dialog-box h2 {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: 'HelveticaBold';
+      }
+      
+      .dialog-box button {
+        padding: 10px 16px;
+        font-size: 14px;
+        border: none;
+        background-color: #704695;
+        color: white;
+        border-radius: 6px;
+        cursor: pointer;
+        font-family: 'HelveticaBold';
+      }
+      
+      .dialog-box button:hover {
+        background-color: #005bb5;
+      }
+    
+      .dialog-overlay.fade-out {
+        opacity: 0;
+        visibility: hidden;
+      }
+    
+    
+    .intro-middle {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Gotham';
+    }
+    
+    .intro-left {
+      text-align: left;
+      flex: 1;
+      font-family: 'Gotham';
+    }
+    
+    .intro-right img {
+      max-width: 160px;
+      height: auto;
+      display: block;
+    }
+    
+    #rudin-logo-fixed {
+      position: fixed;
+      bottom: 40px;
+      right: 120px;
+      z-index: 998;
+      opacity: 0.9;
+      pointer-events: auto;
+      max-width: 60px;
+    }
+    
+    #rudin-logo-fixed img {
+      max-width: 160px;
+      height: auto;
+      display: block;
+    }
+      
+     
+      /* styling for the container that holds the legend of all the subway lines and the toggle button */
+    
+      #legend-container {
+        position: absolute;
+        top: 45px;
+        right: 10px;
+        z-index: 1;
+        font-family: Arial, sans-serif;
+        background: #2E3A59;
+      }
+    
+    
+      /* styling for the legend and adding the transition for when you click the toggle and it collapses */
+    
+      #map-legend {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: #2E3A59;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+    
+      /* styling for the legend button */
+    
+      .legend-button {
+        margin: 4px;
+        padding: 6px 12px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        width: 180px;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        background: #3498DB;     /* Secondary */
+        color: #F4F4F4;          /* Light Neutral text */
+        border: none;
+      }
+      
+    
+      /* styling for when you hover over the legend button */
+    
+      .legend-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 
-  /* styling for the legend button */
+      }
+      
+    /* styling for the button so you know it is selected when you click it */
+    
+      .legend-button.selected {
+        box-shadow: 0 0 12px 2px rgba(0, 0, 0, 0.5);
+        outline: 2px solid burlywood;
 
-  .legend-button {
-    margin: 4px;
-    padding: 6px 12px;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    width: 180px;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
+      }
+    
 
-  /* styling for when you hover over the legend button */
+      #info-box {
+        display: none;   /* don’t show on load */
+        position: absolute;
+        top: 55px !important;
+        left: 50px;
+        padding: 20px;
+        max-width: 300px;
+        z-index: 1000;
+        background: white;
+        border-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        font-family: 'Gotham';
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        background: #2E3A59;       /* Primary Dark */
+        color: #F4F4F4;            /* Light Neutral for text */
+        
+      }
 
-  .legend-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-  }
-  
-/* styling for the button so you know it is selected when you click it */
+#info-box h2 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-family: 'GothamBold';
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+#info-body p {
+  margin: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
 
-  .legend-button.selected {
-    box-shadow: 0 0 12px 2px rgba(0, 0, 0, 0.5);
-    outline: 2px solid white;
-  }
+#next-button {
+  display: inline-block;
+  bottom: 10px;
+  right: 10px;
+  margin-top: 12px;
+  padding: 6px 12px;
+  font-size: 14px;
+  background-color: #734B99;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#next-button:hover {
+  background-color: #005fa3;
+}
 
-/* styling for the info box that shows when clicking a button */
 
-#info-content {
-    display: flex;
-    flex-direction: row;
-    gap: 12px;
-    overflow-x: auto;
-    flex-wrap: wrap;
-    transition: opacity 0.4s ease, transform 0.4s ease;
-  }
+#back-button {
+  display: inline-block;
+  bottom: 10px;
+  left: 10px;
+  margin-top: 12px;
+  padding: 6px 12px;
+  font-size: 14px;
+  background-color: #734B99;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#back-button:hover {
+  background-color: #005fa3;
+}
+      
+.legend-separator {
+  text-align: center;
+  margin: 0.5em 0;
+  color: #888;
+  pointer-events: none;
+}
 
-  #info-box {
-    position: absolute;
-    top: 10px;
-    left: 60px;
-    z-index: 2;
-    display: flex;             
-    gap: 8px;                  
-    background: transparent;
-    font-size: 13px;
-    line-height: 1.4;
-    width: auto;
-    transition: opacity 0.4s ease, transform 0.4s ease;
-  }
+.about-button {
+  text-align: center;
+  background-color:#FFFFFF;
+  color:rgba(0, 0, 0, 0.9)
+}
 
-  /* styling for info boxes and their placement on page */
-  #panel-1 {
-    width: 400px;
-    height: auto;
-    font-size: 11.5px;
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    transform: translateX(0);
-  }
+.info-switch {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 6px 12px;
+  font-size: 14px;
+  background-color: #734B99;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #3498DB;     /* Secondary */
+  color: #F4F4F4;
+}
 
-  #panel-2 {
-    width: 400px;
-    height: 167px;
-    transform: translateX(80px);
-    font-size: 11.5px;
-    transition: opacity 0.4s ease, transform 0.4s ease;
-  }
-  
-  #panel-3 {
-    font-size: 11.5px;
-    width: 250px;
-    top: 220px;  
-    transform: translateX(-718px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-  }
+.info-switch:hover {
+  background: #E67E22;     /* Warm Accent */
+}
 
-  /* styling for info boxes */
-  
-  #info-box.hidden {
-    display: none;
-    transition: opacity 0.4s ease, transform 0.4s ease;
-  }
-  
-  #info-close {
-    position: absolute;
-    top: 8px;
-    right: 12px;
-    cursor: pointer;
-    font-weight: bold;
-    float: right;
-    font-size: 16px;
-    visibility: hidden;
-    transition: opacity 0.4s ease, transform 0.4s ease;
-  }
-  
-  #info-box h2 {
-    margin-top: 0;
-    font-size: 16px;         
-  }
-  
-  #info-box p {
-    margin: 0;
-  }
-  
-  #info-content {
-    display: flex;
-    gap: 8px;
-    transition: opacity 0.4s ease, transform 0.4s ease;
-  }
-  
-  .info-panel {
-    position: absolute;
-    top: 10px;
-    width: 300px;
-    background: white;
-    border-radius: 6px;
-    padding: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    opacity: 1;
-    transform: translateX(0);
-    z-index: 2;
-  }
-  
-  
-  .info-panel.hidden {
-    opacity: 0;
-    transform: translateY(10px);
-    pointer-events: none;
-    visibility: hidden;
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    transform: translateX(0);
-  }
+#page-title-box {
+  position: fixed;
+  top: 3px;
+  left: 50%;
+  padding: 8px 24px;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.9);
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 999;
+  font-size: 16px;
+  line-height: 1.0;
+  width: 1500px;
+  font-family: 'Gotham';
+  background: #2E3A59;       /* Primary Dark */
+  color: #F4F4F4;            /* Light Neutral for text */
+  opacity: .95;
+}
 
-  /* expand/collapse buttons */
-  
-  .expand-btn, .collapse-btn {
-    margin-top: 8px;
-    height: 28px;
-    width: 28px;
-    font-size: 18px;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .expand-btn:hover, .collapse-btn:hover {
-    background-color: #555;
-  }
+#page-title-box h2,
+#page-title-box h1,
+#page-title-box h4,
+#page-title-box p {
+  margin: 5px;
+  font-family: 'Gotham';
+  opacity: 1;
+  display: inline;
+  vertical-align: middle;
+}
+
+/* 2) Push Mapbox “top-left” controls down */
+.mapboxgl-ctrl-top-left {
+  top: 45px !important;   /* adjust 60px to match your title height + margin */
+  color: #2E3A59;
+}
+

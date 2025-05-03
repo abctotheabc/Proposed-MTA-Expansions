@@ -11,52 +11,66 @@
 <!--adding the css, java, and mapbox code into my html-->
 
 <body>
+  <div id="page-title-box">
+    <h2>Through the Lines: NYC’s Transit Tomorrow</h2>
+    <h4>A Deep Dive into Subway Expansion, Ridership & Neighborhood Access</h4>
+  </div>
     <div id="map-container"></div>
     <link rel="stylesheet" href="styles.css">
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js"></script>
-    <script src="scripts.js"></script>
-    <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+    <script src="scripts.js" defer></script>
+    <script src="flying.js" defer></script>
+    <script src="population.js" defer></script>
+    <script src="station_info.js" defer></script>
+    <script src="line_info.js" defer></script>
+    <script src="references.js" defer></script>
 
-    <!--i have the turf script above for what i'd like to achieve in the third iteration of this which would include flying-->
 
+    <div id="rudin-logo-fixed">
+      <img src="images/RudinCenterTransparent.png" alt="NYU Rudin Center Logo">
+    </div>
 
 <!--text for the dialogue box that shows when first entering page with the java code to dismiss it with the button-->
 
-<div id="welcome-dialog" class="dialog-overlay">
-  <div class="dialog-box">
-    <h2>🗺️ NYC Transit Futures: Explore the Possibilities</h2>
-    <p><strong>Welcome to the NYC Transit Expansion Map.</strong></p>
-    <p>This interactive tool highlights major proposed subway projects across New York City — including the Interborough Express, Second Avenue Subway, QueensLink, and more. Each route features data-driven context, maps of walkable access, and insights into demographics, population size, income, and other key metrics for the area around the proposed line.</p>
-    <p><strong>👆 Click a line in the legend to begin exploring.</strong> 
-    <p>Use the expandable info panels to learn more about each project’s vision and footprint.</p>
-    <p>SECOND ITERATION DRAFT APRIL 17 2025</p>
-    <button onclick="dismissDialog()">Got it!</button>
+<div id="info-box">
+  <h2 id="info-title">Welcome!</h2>
+  <div id="info-body">
+    Click any line in the legend to see its info here.
+  </div>
+  <div id="info-buttons" style="display: flex; justify-content: space-between; margin-top: 12px;">
+    <button id="back-button" style="display: none;">← Back</button>
+    <button id="next-button">Next →</button>
   </div>
 </div>
 
 
-
-      <!--this is for the 3 info panels every button activates-->
-
-      <div id="info-box" class="hidden">
-        <span id="info-close">&times;</span>
-        <div id="info-content">
-          <div id="panel-1" class="info-panel">
-            <h2 id="info-title">Project Info</h2>
-            <p id="info-content-1">This is the first panel.</p>
-            <button class="expand-btn" id="expand-1">→</button>
-          </div>
-          <div id="panel-2" class="info-panel hidden">
-            <p id="info-content-2">This is the second panel.</p>
-            <button class="collapse-btn" id="collapse-1">←</button>
-            <button class="expand-btn" id="expand-2">→</button>
-          </div>
-          <div id="panel-3" class="info-panel hidden">
-            <p id="info-content-3">This is the third panel.</p>
-            <button class="collapse-btn" id="collapse-2">←</button>
-          </div>
+<div id="welcome-dialog" class="dialog-overlay">
+  <div class="dialog-box">
+    <div class="intro-text">
+      <h2>Through the Lines:</h2>
+      <h2>NYC’s Transit Tomorrow</h2>
+    
+      <div class="intro-middle">
+        <div class="intro-left">
+          <p><strong>by Anthony Cardenas</strong></p>
+          <p><strong>April 24th, 2025</strong></p>
+        </div>
+        <div class="intro-right">
+          <img src="images/RudinCenterLogo.jpg" alt="Rudin Center Logo">
         </div>
       </div>
+    
+      <button onclick="dismissDialog()">Explore the Map</button>
+    </div>
 
+
+      </body>
 </html>
+
+
+    <!-- <p>This interactive tool highlights major proposed subway projects across New York City — including the Interborough Express, Second Avenue Subway, QueensLink, and more. Each route features data-driven context, maps of walkable access, and insights into demographics, population size, income, and other key metrics for the area around the proposed line.</p> -->
+    <!-- <p><strong>👆 Click a line in the legend to begin exploring.</strong> 
+    <p>Use the expandable info panels to learn more about each project’s vision and footprint.</p> -->
+
+      <!--this is for the 3 info panels every button activates-->

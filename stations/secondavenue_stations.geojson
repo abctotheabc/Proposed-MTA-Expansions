@@ -1,0 +1,23 @@
+{
+"type": "FeatureCollection",
+"name": "secondavenue_stations",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "ID": 16, "station_name": "125 St" }, "geometry": { "type": "Point", "coordinates": [ -73.938955710042961, 40.805044733188538 ] } },
+{ "type": "Feature", "properties": { "ID": 15, "station_name": "116 St" }, "geometry": { "type": "Point", "coordinates": [ -73.937751921982937, 40.797028845271768 ] } },
+{ "type": "Feature", "properties": { "ID": 14, "station_name": "106 St" }, "geometry": { "type": "Point", "coordinates": [ -73.942450343397866, 40.790627403373549 ] } },
+{ "type": "Feature", "properties": { "ID": 1, "station_name": "Hanover Sq" }, "geometry": { "type": "Point", "coordinates": [ -74.008977852540326, 40.70413500190466 ] } },
+{ "type": "Feature", "properties": { "ID": 2, "station_name": "Seaport" }, "geometry": { "type": "Point", "coordinates": [ -74.004021382429983, 40.70735392247343 ] } },
+{ "type": "Feature", "properties": { "ID": 3, "station_name": "Chatham Sq" }, "geometry": { "type": "Point", "coordinates": [ -73.998038845844832, 40.713727911451542 ] } },
+{ "type": "Feature", "properties": { "ID": 4, "station_name": "Grand St" }, "geometry": { "type": "Point", "coordinates": [ -73.993835586642689, 40.718175768138281 ] } },
+{ "type": "Feature", "properties": { "ID": 5, "station_name": "Houston St" }, "geometry": { "type": "Point", "coordinates": [ -73.991281765461579, 40.723766615643456 ] } },
+{ "type": "Feature", "properties": { "ID": 6, "station_name": "14 St" }, "geometry": { "type": "Point", "coordinates": [ -73.984933168701488, 40.732367239663944 ] } },
+{ "type": "Feature", "properties": { "ID": 7, "station_name": "23 St" }, "geometry": { "type": "Point", "coordinates": [ -73.98091608906779, 40.737843098342239 ] } },
+{ "type": "Feature", "properties": { "ID": 8, "station_name": "34 St" }, "geometry": { "type": "Point", "coordinates": [ -73.975886543187428, 40.744787059416126 ] } },
+{ "type": "Feature", "properties": { "ID": 9, "station_name": "42 St" }, "geometry": { "type": "Point", "coordinates": [ -73.972212103708557, 40.749827124772878 ] } },
+{ "type": "Feature", "properties": { "ID": 10, "station_name": "55 St" }, "geometry": { "type": "Point", "coordinates": [ -73.966221185259457, 40.758042696320217 ] } },
+{ "type": "Feature", "properties": { "ID": 11, "station_name": "72 St" }, "geometry": { "type": "Point", "coordinates": [ -73.958351395210315, 40.768805993827158 ] } },
+{ "type": "Feature", "properties": { "ID": 12, "station_name": "86 St" }, "geometry": { "type": "Point", "coordinates": [ -73.95177195315479, 40.777819136207455 ] } },
+{ "type": "Feature", "properties": { "ID": 13, "station_name": "96 St" }, "geometry": { "type": "Point", "coordinates": [ -73.947105068569869, 40.784303080131792 ] } }
+]
+}
