@@ -1,4 +1,69 @@
-
+const scorecardsImgs = {
+  'secondavenue-path': {
+    img:  'scorecards/secondavenuescorecard.png',
+    text: `
+      <p>
+        Each project is scored on ridership, time-savings, equity, cost-effectiveness,
+        sustainability, resiliency, capacity, geographic distribution, and network leverage.
+        <a href="https://future.mta.info/documents/20-YearNeedsAssessment_ComparativeEvaluation.pdf"
+           target="_blank">
+          Full methodology here</a>.
+      </p>`
+  },
+  'uticaavenue-path': {
+    img:  'scorecards/uticaavenuescorecard.png',
+    text: `
+      <p>
+        Each project is scored on ridership, time-savings, equity, cost-effectiveness,
+        sustainability, resiliency, capacity, geographic distribution, and network leverage.
+        <a href="https://future.mta.info/documents/20-YearNeedsAssessment_ComparativeEvaluation.pdf"
+           target="_blank">
+          Full methodology here</a>.
+      </p>`
+  },
+  'ibx-path': {
+    img:  'scorecards/ibxscorecard.png',
+    text: ` 
+      <p>
+        Each project is scored on ridership, time-savings, equity, cost-effectiveness,
+        sustainability, resiliency, capacity, geographic distribution, and network leverage.
+        <a href="https://future.mta.info/documents/20-YearNeedsAssessment_ComparativeEvaluation.pdf"
+           target="_blank">
+          Full methodology here</a>.
+      </p>`
+  },
+  'redhook-w-path': {
+    img:  'scorecards/redhook_w_scorecard.png',
+    text: `
+      <p>
+        Each project is scored on ridership, time-savings, equity, cost-effectiveness,
+        sustainability, resiliency, capacity, geographic distribution, and network leverage.
+        <a href="https://future.mta.info/documents/20-YearNeedsAssessment_ComparativeEvaluation.pdf"
+           target="_blank">
+          Full methodology here</a>.
+      </p>`
+  },
+  'flatlands-3-path': {
+    img:  'scorecards/flatlands_3_scorecard.png',
+    text: `
+      <p>
+        Each project is scored on ridership, time-savings, equity, cost-effectiveness,
+        sustainability, resiliency, capacity, geographic distribution, and network leverage.
+        <a href="https://future.mta.info/documents/20-YearNeedsAssessment_ComparativeEvaluation.pdf"
+           target="_blank">
+          Full methodology here</a>.
+      </p>`
+  },
+  // placeholders for the two you’ll fill in later:
+  'queenslink-path': {
+    img:  '',
+    text: `<p>Details coming soon…</p>`
+  },
+  'tribx-path': {
+    img:  '',
+    text: `<p>Details coming soon…</p>`
+  }
+};
 
 
 const lineDescriptions = {
@@ -50,15 +115,6 @@ const demographics = {
     'flatlands-3-path':  { population: '56,160', income: '$65,748', vehicles: '8,426' }
   };
 
-  const scorecards = {
-    'secondavenue-path': { population: 'XXX' },
-    'tribx-path':        { population: 'XXX' },
-    'ibx-path':          { population: 'XXX' },
-    'queenslink-path':   { population: 'XXX' },
-    'uticaavenue-path':  { population: 'XXX' },
-    'redhook-w-path':    { population: 'XXX' },
-    'flatlands-3-path':  { population: 'XXX' }
-  };
 
   map.on('load', () => {
     // 2) State
@@ -123,15 +179,29 @@ const demographics = {
         nextBtn.style.display = 'inline-block';
   
       } else if (panelState === 3) {
-        // Panel 3: scorecards
-        const s = scorecards[currentLineId];
-        infoBody.innerHTML = `
-          <strong>Scorecard:</strong>
-          <ul>
-            <li><strong>Ridership Efficiency:</strong> ${s.ridership}</li>
-            <li><strong>Equity Score:</strong> ${s.equity}</li>
-            <li><strong>Sustainability Index:</strong> ${s.sustainability}</li>
-          </ul>`;
+        // Panel 3: show the scorecard image (or blank placeholder)
+        const sc = scorecardsImgs[currentLineId] || { img: '', text: '' };
+        const imgHtml = sc.img
+          ? `<img src="${sc.img}" 
+                  alt="${infoTitle.textContent} Scorecard" 
+                  class="scorecard-img"
+                  style="
+                  max-width:100%; 
+                  display:block; 
+                  margin:0;
+                  max-height: 320px;
+                  width: auto;
+                  height: auto;">`
+          : `<div class="scorecard-placeholder" 
+                  style="width:100%; height:200px; background:#f0f0f0;"></div>`;
+  
+                  const textHtml = sc.text;
+                  
+        infoBody.innerHTML = imgHtml + textHtml;
+        const link = infoBody.querySelector('a');
+          if (link) {
+            link.style.color = '#E67E22';
+          }
         backBtn.style.display = 'inline-block';
         nextBtn.style.display = 'none';
       }

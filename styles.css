@@ -349,3 +349,10 @@
   color: #2E3A59;
 }
 
+.scorecard-img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  border: 2px solid #fff;
+  }
+
