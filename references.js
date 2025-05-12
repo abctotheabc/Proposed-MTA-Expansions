@@ -1,7 +1,6 @@
-// references.js
+// references.js, where the code for the about the project/references button is
 
 map.on('load', () => {
-    // grab legend + info‐box elements
     const legend    = document.getElementById('map-legend');
     const infoBox   = document.getElementById('info-box');
     const infoTitle = document.getElementById('info-title');
@@ -10,13 +9,13 @@ map.on('load', () => {
     const backBtn   = document.getElementById('back-button');
     if (!legend) return;
   
-    // ➊ Separator
+    // separates lines from about button just to make it more apparent that this is different from the rest
     const separator = document.createElement('div');
     separator.className   = 'legend-separator';
     separator.textContent = '──────────';
     legend.appendChild(separator);
   
-    // ➋ About button
+    // about button
     const aboutBtn = document.createElement('button');
     aboutBtn.id          = 'about-button';
     aboutBtn.className   = 'legend-button about-button';
@@ -25,7 +24,7 @@ map.on('load', () => {
   
     let panel = 1;
   
-    // Panel 1: About
+    // panel 1 with the about the project
     function showAboutPanel() {
       panel = 1;
       infoTitle.textContent = 'About the Project';
@@ -34,8 +33,6 @@ map.on('load', () => {
         <br>
         <p>👆 Click a line in the legend to begin exploring and learn more about each project’s vision and footprint. </p>
         <br>
-        👆 Click a station on the line to understand more about the population within a ten minute walk of the selected station.
-         <br></br>
         <p>This map was built with Mapbox GL JS.</p>
 
         <button id="ref-switch" class="info-switch">References</button>
@@ -49,7 +46,7 @@ map.on('load', () => {
       backBtn.style.display = 'none';
     }
   
-    // Panel 2: References
+    // panel 2 with all my references
     function showReferencesPanel() {
       panel = 2;
       infoTitle.textContent = 'References';
@@ -105,18 +102,16 @@ map.on('load', () => {
       backBtn.style.display = 'none';
     }
   
-    // ➌ Click handler for the About button
+    // click for the About button
     aboutBtn.addEventListener('click', () => {
-      // If any other legend-button is selected, trigger its click to reset that layer
       document.querySelectorAll('.legend-button.selected')
         .forEach(btn => {
           if (btn !== aboutBtn) btn.click();
         });
   
-      // Toggle About’s own selected state
       const nowSelected = aboutBtn.classList.toggle('selected');
   
-      // Reset map view with a 1s ease animation
+      // resets map view with a 1s ease animation
       map.easeTo({
         center:   [-73.97744, 40.71595],
         zoom:     10.26,
@@ -127,10 +122,8 @@ map.on('load', () => {
       });
   
       if (nowSelected) {
-        // Show About content
         showAboutPanel();
       } else {
-        // Hide box & reset panel
         infoBox.style.display = 'none';
         panel = 1;
       }

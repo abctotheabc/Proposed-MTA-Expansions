@@ -1,6 +1,6 @@
-// flying.js
+// flying.js, this is where all my code is for the zooming that happens on my map
 
-// 1) your fly‐to targets
+// 1) where I want to fly to when you click each line
 const flyParams = {
     'secondavenue-path':  { center: [-73.99537716927611, 40.757910262638404], zoom: 11.608442744700787 },
     'tribx-path':         { center: [-73.90405219680713, 40.804772877805476], zoom: 11.457030556632628 },
@@ -11,7 +11,7 @@ const flyParams = {
     'flatlands-3-path':   { center: [-73.88067042425244, 40.66118120319271], zoom: 14.298745738232537 }
   };
   
-  // 2) your “home” view
+  // 2) my “home” view
   const homeView = {
     center: [-73.97744, 40.71595],
     zoom:   10.26,
@@ -19,13 +19,13 @@ const flyParams = {
     pitch:   0
   };
   
-  // 3) once the map (and your legend) have loaded, hook each button
+  // 3) once my map and legend have loaded, thiss hook each button to the flying in/flying out
   map.on('load', () => {
     document.querySelectorAll('.legend-button').forEach(btn => {
       const lineId = btn.dataset.lineId;
       btn.addEventListener('click', () => {
         if (btn.classList.contains('selected')) {
-          // just got selected → fly into that line
+          // when selected, flies into the line
           const p = flyParams[lineId];
           map.flyTo({
             center:  p.center,
@@ -36,7 +36,7 @@ const flyParams = {
             essential:   true,
           });
         } else {
-          // got de‐selected → fly back home
+          // flies back when de-selected
           map.flyTo({
             center:  homeView.center,
             zoom:    homeView.zoom,

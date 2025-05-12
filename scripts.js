@@ -7,7 +7,7 @@ function dismissDialog() {
 
   setTimeout(() => {
     dialog.style.display = 'none';
-  }, 800); // 800ms matches your CSS transition duration
+  }, 800); 
 }
 
 // adding mapbox below and navigation controls, locked in for just a section of NY/CT/NJ so people don't zoom to other places
@@ -36,7 +36,7 @@ map.addControl(new mapboxgl.ScaleControl({
   unit: 'imperial'
 }), 'bottom-left');
 
-// adding 3d buildings!! you have to really zoom in to activate it but this will be for the third iteration of my code not done yet
+// adding 3d buildings!! this is staying in here in case i do anything with it for the next iteration of this (outside class final project)
 
     map.on('load', () => {
 
@@ -582,7 +582,7 @@ function resetMapOverlays() {
     }
   });
   
-  // Reset all station opacities to 1
+  // resets opacities to 1
   stationLayers.forEach(layerId => {
     if (map.getLayer(layerId)) {
       map.setPaintProperty(layerId, 'circle-opacity', 1);
@@ -645,14 +645,12 @@ const legendItems = [
     { id: 'queenslink-path', label: 'QueensLink', color: '#ff6324' }
   ];
 
-
-// 2️⃣ build the DOM
   const legendContainer = document.createElement('div');
   legendContainer.id = 'legend-container';
   const legend = document.createElement('div');
   legend.id = 'map-legend';
 
-  // 3️⃣ create one button per line
+  // creates one button per line
   legendItems.forEach(item => {
     const btn = document.createElement('button');
     btn.className           = 'legend-button';
@@ -665,7 +663,7 @@ const legendItems = [
       const wasSelected = btn.classList.contains('selected');
     
       if (wasSelected) {
-        // 🛑 De-select: remove the dash-layer, unregister it, reset everything
+        // reset everything
         btn.classList.remove('selected');
         if (map.getLayer(dashedId)) {
           map.removeLayer(dashedId);
@@ -675,16 +673,13 @@ const legendItems = [
         return;
       }
     
-      // 🔄 Select new line:
-      // 1) clear existing overlays & unselect any other button
+      // clears existing overlays and unselects any other button
       resetMapOverlays();
       document.querySelectorAll('.legend-button.selected')
               .forEach(b => b.classList.remove('selected'));
     
-      // 2) mark this one selected
       btn.classList.add('selected');
     
-      // 3) add & register its animated dash layer
       const stationLayerId = item.id.replace('-path','-stations');
       map.addLayer({
         id: dashedId,
@@ -698,7 +693,7 @@ const legendItems = [
       }, stationLayerId);
       animatedLayers[dashedId] = true;
     
-      // 4) show its 10-min polygon
+      // show 10 min polygon/shaded area
       const polygons = {
         'secondavenue-path':'secondaveavg',
         'uticaavenue-path':'uticaavenueavg',
@@ -711,7 +706,7 @@ const legendItems = [
       const poly = polygons[item.id];
       if (poly) map.setLayoutProperty(poly, 'visibility', 'visible');
     
-      // 5) dim all non-selected lines + stations
+      // dim everything not selected so it is easier on the eyes
       legendItems.forEach(other => {
         const otherLine     = other.id.replace('-path','-line');
         const otherStations = other.id.replace('-path','-stations');
@@ -724,7 +719,7 @@ const legendItems = [
     legend.appendChild(btn);
   });
 
-  // 4️⃣ attach and show the legend
+  // show legend
   legendContainer.appendChild(legend);
   document.body.appendChild(legendContainer);
 });

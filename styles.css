@@ -194,8 +194,8 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        background: #3498DB;     /* Secondary */
-        color: #F4F4F4;          /* Light Neutral text */
+        background: #3498DB;     
+        color: #F4F4F4;          
         border: none;
       }
       
@@ -218,7 +218,7 @@
     
 
       #info-box {
-        display: none;   /* don’t show on load */
+        display: none;   
         position: absolute;
         top: 55px !important;
         left: 50px;
@@ -230,8 +230,8 @@
         box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         font-family: 'Gotham';
         transition: opacity 0.4s ease, transform 0.4s ease;
-        background: #2E3A59;       /* Primary Dark */
-        color: #F4F4F4;            /* Light Neutral for text */
+        background: #2E3A59;       
+        color: #F4F4F4;            
         
       }
 
@@ -304,12 +304,12 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  background: #3498DB;     /* Secondary */
+  background: #3498DB;     
   color: #F4F4F4;
 }
 
 .info-switch:hover {
-  background: #E67E22;     /* Warm Accent */
+  background: #E67E22;    
 }
 
 #page-title-box {
@@ -327,8 +327,8 @@
   line-height: 1.0;
   width: 1500px;
   font-family: 'Gotham';
-  background: #2E3A59;       /* Primary Dark */
-  color: #F4F4F4;            /* Light Neutral for text */
+  background: #2E3A59;       
+  color: #F4F4F4;            
   opacity: .95;
 }
 
@@ -343,9 +343,9 @@
   vertical-align: middle;
 }
 
-/* 2) Push Mapbox “top-left” controls down */
+/* needed to have the mapbox controls in a specific place to not accidently mix with info boxes placement */
 .mapboxgl-ctrl-top-left {
-  top: 45px !important;   /* adjust 60px to match your title height + margin */
+  top: 45px !important;   
   color: #2E3A59;
 }
 

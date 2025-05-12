@@ -1,3 +1,6 @@
+
+// code for all line specific info and info boxes starting with score cards
+
 const scorecardsImgs = {
   'secondavenue-path': {
     img:  'scorecards/secondavenuescorecard.png',
@@ -54,17 +57,23 @@ const scorecardsImgs = {
           Full methodology here</a>.
       </p>`
   },
-  // placeholders for the two you’ll fill in later:
   'queenslink-path': {
-    img:  '',
-    text: `<p>Details coming soon…</p>`
+    text: `<p><strong>The MTA’s 20-Year Needs Assessment did not evaluate QueensLink;</strong> this information instead comes from The QueensLink Corridor Analysis: Phase 1 Preliminary Assessment Report (June 2021) prepared by Transportation Economics & Management Systems, Inc. (TEMS). A revised capital analysis puts the cost estimate at $1.8 billion (about $641 million per mile), rising to $3.4–3.7 billion with professional services and contingencies.  The report suggests annual economic impacts of 100,000–150,000 jobs, $9 to $13 billion in income gains, and $50 to $75 billion in property value growth. Riders could save up to 125 hours per year, auto congestion and emissions would decline, and up to 33 acres of new linear parkland could be added alongside the corridor.<p>
+    <a href="https://thequeenslink.org/wp-content/uploads/2021/06/The-QueensLink-Corridor-Analysis_Ph-1-Prelim-Assessment-Study-Rpt_June-2021_Final.pdf"
+           target="_blank">
+          Full methodology here</a>.
+          </p>`
   },
   'tribx-path': {
-    img:  '',
-    text: `<p>Details coming soon…</p>`
+    text: `<p><strong>The MTA’s 20-Year Needs Assessment omitted the Bronx leg of the Triboro from their evaluation,</strong> focusing only on the Brooklyn–Queens link (IBX); instead, this analysis draws on the RPA's Third Regional Plan. With 59% of Bronx households car-free and one-way commutes to Queens averaging 68 minutes, residents lose over 65 hours a year on indirect bus–subway routes. The Triboro—running every 5–15 minutes—would slash travel times, eliminate transit deserts, cut emissions and congestion, and spark economic and parkland growth. Since Penn Station Access will lock the Hell Gate Line into Amtrak and CSX service, any IBX extension into the Bronx would demand a costly, brand-new parallel bridge and alignment. <p>
+    <a href="https://s3.us-east-1.amazonaws.com/rpa-org/pdfs/RPA-The-Triboro-Transit-for-the-Boroughs-1.pdf"
+           target="_blank">
+          Full methodology here</a>.
+          </p>`
   }
 };
 
+// adding in first panel
 
 const lineDescriptions = {
     'secondavenue-path': `
@@ -92,7 +101,7 @@ const lineDescriptions = {
       <p>QueensLink is a proposed subway extension of the M train that would reactivate the Rockaway Beach Branch to create the first north–south subway in Queens. 
       The project includes four new stations with transfers to six lines and the LIRR. 
       It’s designed to boost transit equity and convenience by serving 47,000 riders daily. 
-      The project is currently unfunded and has no timetable for design or construction.</p>`,
+      It recently received a $400,000 grant from the U.S. Department of Transportation as part of the agency’s Reconnecting Communities Pilot Program, to be used to perform a study to measure the social, environmental, economic and equitable impacts. However, there is no timetable for design or construction.</p>`,
   
     'tribx-path': `
       <p>The Triboro refers to the inclusion of the Bronx in the IBX project, extending beyond Jackson Heights in accordance with the original proposal. 
@@ -104,6 +113,8 @@ const lineDescriptions = {
       The project would bring long-awaited subway access to Red Hook and connect thousands of NYCHA residents to Lower Manhattan. 
       The project is currently unfunded and has no timetable for design or construction.</p>`
   };
+
+  // adding in second panel, idk why I did these out of order
 
 const demographics = {
     'secondavenue-path': { population: '703,936', income: '$136,671', vehicles: '74,744' },
@@ -117,23 +128,21 @@ const demographics = {
 
 
   map.on('load', () => {
-    // 2) State
     let panelState    = 1;
     let currentLineId = null;
   
-    // 3) Cache DOM
     const infoBox   = document.getElementById('info-box');
     const infoTitle = document.getElementById('info-title');
     const infoBody  = document.getElementById('info-body');
     const nextBtn   = document.getElementById('next-button');
     const backBtn   = document.getElementById('back-button');
   
-    // 4) Legend buttons: toggle select/deselect
+    // 4) toggles select/deselect
     document.querySelectorAll('.legend-button').forEach(btn => {
       btn.addEventListener('click', () => {
         const lineId = btn.dataset.lineId;
   
-        // — If clicking the already-active button → deselect & reset
+        // deselect & reset
         if (currentLineId === lineId) {
           infoBox.style.display = 'none';
           currentLineId = null;
@@ -143,43 +152,51 @@ const demographics = {
           return;
         }
   
-        // — Otherwise, clear any prior active button
+        // otherwise clear any prior active button
         document.querySelectorAll('.legend-button')
                 .forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
   
-        // — Initialize panel 1
+        // panel 1
         currentLineId = lineId;
         panelState    = 1;
         infoTitle.textContent = btn.textContent;
         infoBody.innerHTML    = lineDescriptions[lineId] 
                                 || `<p>${btn.textContent} info coming soon.</p>`;
+        infoBody.style.fontSize = '1em';
         backBtn.style.display = 'none';
         nextBtn.style.display = 'inline-block';
         infoBox.style.display = 'block';
       });
     });
   
-    // 5) “Next →” handler
+    // 5 next button
     nextBtn.addEventListener('click', () => {
       if (!currentLineId) return;
       panelState++;
   
       if (panelState === 2) {
-        // Panel 2: demographics
+        // panel 2 shows demographics
         const d = demographics[currentLineId];
         infoBody.innerHTML = `
-          <strong>Demographics (10-min walk):</strong>
-          <ul>
+        <p>
+          The shaded area on the map shows every location reachable within a 10-minute walk of this line’s stations.
+          Displaying the total population, median household income, and number of households with vehicles
+          in this zone is key to understanding who stands to gain improved transit access and to gauge
+          potential demand, equity impacts, and funding priorities.</p> 
+          <br>
+          <strong>Demographics:</strong>
+          <ul style="margin-top: 5px;">
             <li><strong>Population:</strong> ${d.population}</li>
             <li><strong>Median Income:</strong> ${d.income}</li>
             <li><strong>Households w/ Vehicles:</strong> ${d.vehicles}</li>
           </ul>`;
+        infoBody.style.fontSize = '1em';
         backBtn.style.display = 'inline-block';
         nextBtn.style.display = 'inline-block';
   
       } else if (panelState === 3) {
-        // Panel 3: show the scorecard image (or blank placeholder)
+        // panel 3 shows the scorecard image or text
         const sc = scorecardsImgs[currentLineId] || { img: '', text: '' };
         const imgHtml = sc.img
           ? `<img src="${sc.img}" 
@@ -191,9 +208,7 @@ const demographics = {
                   margin:0;
                   max-height: 320px;
                   width: auto;
-                  height: auto;">`
-          : `<div class="scorecard-placeholder" 
-                  style="width:100%; height:200px; background:#f0f0f0;"></div>`;
+                  height: auto;">`: `</div>`;
   
                   const textHtml = sc.text;
                   
@@ -202,12 +217,13 @@ const demographics = {
           if (link) {
             link.style.color = '#E67E22';
           }
+        infoBody.style.fontSize = '1em';
         backBtn.style.display = 'inline-block';
         nextBtn.style.display = 'none';
       }
     });
   
-    // 6) “← Back” handler
+    // 6) the back button
     backBtn.addEventListener('click', () => {
       if (!currentLineId) return;
       panelState--;

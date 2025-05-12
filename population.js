@@ -1,5 +1,9 @@
+
+// I did not use this code but wanted to keep it in case I did. There will be future iterations of this map as explained in my comments.
+
+
 // function addPopulationExtrusion(map) {
-//     if (map.getSource('population')) return; // Prevent adding it twice
+//     if (map.getSource('population')) return; 
   
 //     map.addSource('population', {
 //       type: 'geojson',

@@ -1,65 +1,84 @@
-# class3coolmap
- 
- This is a draft of my README file; I will improve on it closer to the end of the project. AI Disclosure: I used ChatGPT to help me create a template/summary of what I've done so far and info about the project.
+# Interactive NYC Transit Expansion Map
 
-🚇 Interactive NYC Transit Expansion Map
+This repository visualizes proposed subway and transit extensions across New York City, allowing users to explore each corridor’s route, station locations, walkable access areas, demographic context, and evaluation references in a clear, interactive map interface.
 
-This project is a web-based interactive map showcasing proposed transit expansions across New York City, including lines like the Interborough Express (IBX), Utica Avenue Line, QueensLink, and more. It visualizes the routes, stations, and walkable catchment areas for each project, along with expandable info panels describing the purpose, timeline, equity considerations, and demographics.
+🔍 How to Use
+
+Legend: Click any line in the legend to highlight it on the map. Clicking the same button again de-selects and hides the info panel.
+
+Panel Navigation: When a line is selected, a three-panel info box appears:
+
+Panel 1: Project description
+
+Panel 2: Demographics (shows population, median income, and households with vehicles within a 10‑minute walk of stations)
+
+Panel 3: Scorecard image and methodology snippet
+Use the Next → and ← Back buttons to cycle through panels.
+
+About / References: At the bottom of the legend, click the Project Info / References button to open an overlay with project background and source links. Clicking it again de-selects it and resets the map to its default view.
+
+Map Controls: Zoom, pan, and rotate are locked to the NYC/CT/NJ bounding box. Standard Mapbox navigation controls appear at the top-left, styled to match the UI.
 
 📍 Features
 
-Clickable legend with 7 proposed lines
+Interactive Legend: Toggles each proposal’s animation, opacity changes, and catchment area.
 
-Animated dashed overlays and line-specific catchment polygons
+Animated Lines: Dashed "ant-trail" animation highlights the selected route.
 
-Expandable 3-panel info boxes with project descriptions, stats, and images
+10‑Minute Walk Areas: Semi-transparent polygons show walking distance from each station.
 
-Zoom-lock and map controls restricted to NYC/CT/NJ area
+Three‑Panel Info Box: Descriptions, demographics, and scorecards/images with inline text.
 
-Custom GeoJSON data for routes, stations, and isochrones
+About & References: Separate panel with project summary and clickable data sources.
+
+Responsive UI: Fixed, styled title bar; styled controls; consistent mobile-friendly design.
 
 ⚙️ Technical Details
 
-JavaScript with Mapbox GL JS for interactive mapping
+Mapping: Mapbox GL JS for rendering, custom GeoJSON sources for lines, stations, and isochrones.
 
-GeoJSON data for paths, stations, and 10-minute isochrones
+Animations: requestAnimationFrame cycle through dash-array sequences for dynamic line animation.
 
-HTML/CSS for structure and styling of the map UI
+UI Logic: Vanilla JavaScript handles legend toggles, panel state (panelState), and map resets.
 
-Turf.js used for line animations and geometry calculations (e.g., fly-along-line)
+Data Objects: JavaScript objects store descriptions, demographics, scorecard paths & text, and reference lists.
 
-Vanilla JavaScript used for toggles, animations, and info box logic
+Styling: Custom CSS for title box, legend, info box, buttons, dark-themed controls, and responsive layout.
 
 📊 Data Sources
 
-GeoJSON files manually created for:
+MTA 20-Year Needs Assessment (descriptions, equity metrics)
 
-Proposed line paths (based on MTA/RPA maps and plans)
+NYC Open Data (subway station & line geometries)
 
-Proposed station locations
+TransitTime QGIS Plugin (10-minute walk isochrone polygons)
 
-Isochrone polygons (10-minute walk areas per line) created via TransitTime QGIS plugin
+RPA Triboro Plan & TEMS Preliminary Assessment (references for QueensLink & Triboro)
 
-Text data from:
+U.S. Census ACS (2023) for median income, demographics, and housing data
 
-MTA 20-Year Needs Assessment
+TravelTime API (Plugin ID: 1685) for isochrone generation
 
-RPA Triboro Plan
+🎓 Motivation
 
-NYC DOT proposals
+NYC’s radial transit system forces many cross-borough trips to route through Manhattan, costing valuable time. This map brings together proposed expansions to demonstrate their potential impacts on equity, access, and network resilience, making complex planning data accessible to the public and stakeholders.
 
-Public sources including the MTA, RPA, and city planning documents
+🛠 Tools & Libraries
 
-💡 Motivation
+Mapbox GL JS: Interactive 3D mapping
 
-New Yorkers often face long commutes and inequitable access to high-frequency transit. This map aims to centralize and explain the benefits and tradeoffs of each major proposed subway expansion in a way that is visual, engaging, and accessible. It bridges transit policy and data visualization for advocacy, public education, and portfolio purposes.
+Vanilla JavaScript: UI controls, event handling, animations
 
-🛠 Tools Used
+GeoJSON: Custom line, station, and isochrone data
 
-Mapbox GL JS – map rendering
+CSS3: Flex layouts, fixed title bar, responsive styling
 
-Turf.js – geospatial functions (not used yet but will be for third iteration)
+📄 License & Acknowledgments
 
-Custom-built legend and info panels (no libraries)
+Data and methodology sourced from MTA, RPA, TEMS, NYC Open Data, and U.S. Census Bureau.
 
-Visual assets (e.g. subway scorecards) from public MTA sources
+UI inspired by modern dashboard design patterns.
+
+Thank you to Sarah Kaufman and Chris Wong for their help.
+
+Generated with assistance from ChatGPT.

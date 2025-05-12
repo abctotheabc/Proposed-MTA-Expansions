@@ -1,8 +1,9 @@
-// station_info.js
+// station_info.js for all the code for the specific stations on each line
+// the idea for this code in the future iteration (outside of the classroom final project) is to then input more specific data within each station button
 
 map.on('load', () => {
     //
-    // 1) Define the same legendItems here so we can map buttons→layers:
+    // 1) define legend again to map layers to buttons
     //
     const legendItems = [
       { id: 'ibx-path',         label: 'Interborough Express' },
@@ -15,7 +16,7 @@ map.on('load', () => {
     ];
   
     //
-    // 2) For each station-circle layer, add a matching symbol-layer for its labels:
+    // 2) for each station-circle layer, this adds a matching symbol-layer for its labels
     //
     legendItems.forEach(item => {
       const stationLayerId = item.id.replace('-path', '-stations');
@@ -24,14 +25,14 @@ map.on('load', () => {
       map.addLayer({
         id: labelLayerId,
         type: 'symbol',
-        source: stationLayerId,         // uses the same geojson source you added in scripts.js
+        source: stationLayerId,         
         layout: {
-          'text-field': ['get', 'station_name'],  // adjust if your property is called something else
+          'text-field': ['get', 'station_name'],  
           'text-font': ['Open Sans Semibold','Arial Unicode MS Bold'],
           'text-size': 12,
           'text-offset': [0, 1.2],
           'text-anchor': 'top',
-          visibility: 'none'            // start hidden
+          visibility: 'none'          
         },
         paint: {
           'text-color': '#000'
@@ -40,8 +41,7 @@ map.on('load', () => {
     });
   
     //
-    // 3) Wire up the legend buttons: show this line’s labels when it becomes selected,
-    //    hide them (and all others) when it’s deselected.
+    // 3) show the labels when selected and hide when not
     //
     const buttons = document.querySelectorAll('.legend-button');
     buttons.forEach((btn, i) => {
@@ -49,13 +49,11 @@ map.on('load', () => {
       const labelLayerId   = stationLayerId + '-labels';
   
       btn.addEventListener('click', () => {
-        // first hide *all* label layers
         legendItems.forEach(item => {
           const hideId = item.id.replace('-path','-stations') + '-labels';
           map.setLayoutProperty(hideId, 'visibility', 'none');
         });
   
-        // then if this button is now selected, show its labels
         if (btn.classList.contains('selected')) {
           map.setLayoutProperty(labelLayerId, 'visibility', 'visible');
         }
@@ -63,26 +61,25 @@ map.on('load', () => {
     });
 
 
-   // 4) Per-feature hover bounce & persistent select on station circles
+   // 4) stay selected when click and adds that bounce animation too
    legendItems.forEach(item => {
     const stationLayerId = item.id.replace('-path', '-stations');
     const hoverLayerId   = stationLayerId + '-hover';
     const selLayerId     = stationLayerId + '-selected';
 
     let bounceFrame;
-    const bounceSeq = [0, 3, 8, 4, 6, 5]; // relative overshoot
+    const bounceSeq = [0, 3, 8, 4, 6, 5]; 
     let seqIdx;
 
-    // HOVER: bounce just the one feature
     map.on('mouseenter', stationLayerId, (e) => {
       map.getCanvas().style.cursor = 'pointer';
       const name      = e.features[0].properties.station_name;
       const baseColor = map.getPaintProperty(stationLayerId, 'circle-color');
 
-      // remove old hover layer
+      // removes old hover layer
       if (map.getLayer(hoverLayerId)) map.removeLayer(hoverLayerId);
 
-      // add new hover layer filtered to this station
+      // adds new hover layer filtered to this station
       map.addLayer({
         id: hoverLayerId,
         type: 'circle',
@@ -96,7 +93,7 @@ map.on('load', () => {
         }
       });
 
-      // animate bounce
+      // animates bounce
       seqIdx = 0;
       (function bounce() {
         const r = 5 + bounceSeq[seqIdx]; 
@@ -114,20 +111,20 @@ map.on('load', () => {
       if (map.getLayer(hoverLayerId)) map.removeLayer(hoverLayerId);
     });
 
-    // CLICK: add a persistent selected halo + show popup
+    // adds a persistent selected halo and shows popup
     map.on('click', stationLayerId, (e) => {
       const props     = e.features[0].properties;
       const name      = props.station_name || 'Station';
       const coords    = e.features[0].geometry.coordinates.slice();
       const baseColor = map.getPaintProperty(stationLayerId, 'circle-color');
 
-      // clear any previously selected
+      // clears any previously selected
       legendItems.forEach(it => {
         const oldId = it.id.replace('-path','-stations') + '-selected';
         if (map.getLayer(oldId)) map.removeLayer(oldId);
       });
 
-      // add selected halo
+      // adds selected halo
       map.addLayer({
         id: selLayerId,
         type: 'circle',
@@ -141,13 +138,12 @@ map.on('load', () => {
         }
       });
 
-      // show popup with close handler
+      // shows popup with close handler
       const popup = new mapboxgl.Popup({ offset: 12, closeOnClick: true })
         .setLngLat(coords)
         .setHTML(`
           <button class="mapboxgl-popup-close-button">×</button>
           <strong>${name}</strong>
-          <p>Station details go here…</p>
         `)
         .addTo(map);
 
