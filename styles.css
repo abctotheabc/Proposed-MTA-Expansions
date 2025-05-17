@@ -368,15 +368,24 @@
 /* to adjust for smaller screens */
 
 @media (max-width: 800px) {
+  /* 1) let the inner flex container wrap and stay centered */
   .page-title-inner {
-    flex-wrap: wrap;        
+    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;        /* keep it centered */
+    text-align: center;    /* center any inline text */
   }
+
+  /* 2) force each heading onto its own full‐width line, centered */
   .page-title-inner h2,
   .page-title-inner h4 {
-    white-space: normal;   
-    width: 100%;           
-    text-align: center;   
+    display: block;        /* full‐width block */
+    width: 100%;
+    white-space: normal;   /* allow wraps */
+    margin: 4px 0;         /* small vertical spacing */
+    text-align: center;    /* center the text */
   }
 }
 

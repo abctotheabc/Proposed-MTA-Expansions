@@ -238,8 +238,14 @@ const demographics = {
         // back to panel 2
         const d = demographics[currentLineId];
         infoBody.innerHTML = `
-          <strong>Demographics (10-min walk):</strong>
-          <ul>
+          <p>
+          The shaded area on the map shows every location reachable within a 10-minute walk of this line’s stations.
+          Displaying the total population, median household income, and number of households with vehicles
+          in this zone is key to understanding who stands to gain improved transit access and to gauge
+          potential demand, equity impacts, and funding priorities.</p> 
+          <br>
+          <strong>Demographics:</strong>
+          <ul style="margin-top: 5px;">
             <li><strong>Population:</strong> ${d.population}</li>
             <li><strong>Median Income:</strong> ${d.income}</li>
             <li><strong>Households w/ Vehicles:</strong> ${d.vehicles}</li>
