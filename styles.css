@@ -325,22 +325,59 @@
   z-index: 999;
   font-size: 16px;
   line-height: 1.0;
-  width: 1500px;
+  width: 100vw;
   font-family: 'Gotham';
   background: #2E3A59;       
   color: #F4F4F4;            
   opacity: .95;
 }
 
-#page-title-box h2,
-#page-title-box h1,
-#page-title-box h4,
-#page-title-box p {
-  margin: 5px;
-  font-family: 'Gotham';
-  opacity: 1;
-  display: inline;
+.page-title-inner {
+  max-width: 90vw;       
+  margin: 0;         
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   vertical-align: middle;
+  gap: 8px;
+  font-family: 'Gotham';
+  flex-wrap: nowrap;
+}
+
+.page-title-inner h2,
+.page-title-inner h4 {
+  margin: 0;
+  display: inline;         
+  white-space: normal;
+  font-family: 'Gotham', sans-serif;
+  color: #F4F4F4;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+
+.page-title-inner h2 {
+  font-size: clamp(0.75rem, calc(0.5rem + 1vw), 1.5rem);
+}
+
+.page-title-inner h4 {
+  font-size: clamp(0.6rem, calc(0.4rem + 0.5vw), 1rem);
+}
+
+/* to adjust for smaller screens */
+
+@media (max-width: 800px) {
+  .page-title-inner {
+    flex-wrap: wrap;        
+    justify-content: center;
+  }
+  .page-title-inner h2,
+  .page-title-inner h4 {
+    white-space: normal;   
+    width: 100%;           
+    text-align: center;   
+  }
 }
 
 /* needed to have the mapbox controls in a specific place to not accidently mix with info boxes placement */
