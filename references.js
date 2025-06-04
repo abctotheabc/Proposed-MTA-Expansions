@@ -93,7 +93,7 @@ map.on('load', () => {
     <button id="about-switch" class="info-switch">About the Project</button>
   `;
   infoBody.style.fontSize = '0.85em';
-  infoBody.querySelectorAll('a').forEach(link => link.style.color = '#E67E22');
+  infoBody.querySelectorAll('a').forEach(link => link.style.color = '#A0CECB');
       document.getElementById('about-switch')
               .addEventListener('click', showAboutPanel);
   

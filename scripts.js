@@ -639,8 +639,8 @@ const legendItems = [
     { id: 'ibx-path', label: 'Interborough Express', color: '#9b8ed8' },
     { id: 'uticaavenue-path', label: 'Utica Avenue Line', color: '#00933c' },
     { id: 'secondavenue-path', label: 'Second Avenue Subway', color: '#00add0' },
-    { id: 'flatlands-3-path', label: '3 Train to Flatlands', color: '#ee352e' },
-    { id: 'redhook-w-path', label: 'W Train to Red Hook', color: '#fccc0a' },
+    { id: 'flatlands-3-path', label: '3 Ext. to Flatlands', color: '#ee352e' },
+    { id: 'redhook-w-path', label: 'W Ext. to Red Hook', color: '#fccc0a' },
     { id: 'tribx-path', label: 'The Triboro', color: '#fbae34' },
     { id: 'queenslink-path', label: 'QueensLink', color: '#ff6324' }
   ];
