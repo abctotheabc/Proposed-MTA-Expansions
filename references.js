@@ -32,6 +32,8 @@ map.on('load', () => {
         <p>This interactive tool highlights major proposed subway projects across New York City — including the Interborough Express, Second Avenue Subway, QueensLink, and more. Each route features data-driven context, visuals of walkable access, and insights into demographics, population size, income, and other key metrics for the area around the proposed line.</p>
         <br>
         <p>👆 Click a line in the legend to begin exploring and learn more about each project’s vision and footprint. </p>
+                    👆 Click a station on the line to understand more about the population within a ten minute walk of the selected station.
+            <br></br>
         <br>
         <p>This map was built with Mapbox GL JS.</p>
 
