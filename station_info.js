@@ -339,13 +339,13 @@ const stationData = {
   ▪ 0.00% Native Hawaiian and Other Pacific Islander<br>
   ▪ 18.46% Some Other Race<br>
   ▪ 39.06% Hispanic or Latino (of any race)<br>
+    <strong>Vehicle Access</strong><br>
+  ▪ 59.00% have no vehicles available<br>
   <strong>Commute Mode to Work</strong><br>
   ▪ 14.58% drove alone<br>
   ▪ 4.97% carpooled<br>
   ▪ 56.75% took public transit<br>
   ▪ 11.60% worked at home<br>
-  <strong>Vehicle Access</strong><br>
-  ▪ 59.00% have no vehicles available<br>
   <strong>Median Income</strong><br>
   ▪ $71,927<br>
   <strong>Commute Time to Work</strong><br>
@@ -354,13 +354,8 @@ const stationData = {
   ▪ ≥ 45 mins: 38.11%<br>
   <strong>Poverty (FPL)</strong><br>
   ▪ below 50%: 4.16%<br>
-  ▪ below 125%: 15.56%<br>
   ▪ below 150%: 21.80%<br>
-  ▪ below 185%: 28.79%<br>
   ▪ below 200%: 31.29%<br>
-  ▪ below 300%: 48.75%<br>
-  ▪ below 400%: 62.38%<br>
-  ▪ below 500%: 72.13%<br>
 `,
 
 "Northern Boulevard": `
