@@ -25,9 +25,9 @@ const stationData = {
     ▪ 56.72% took public transit<br>
 
     <strong>Commute Time to Work</strong><br>
-    ▪ ≤ 30 mins: 1,329 (20.85%)<br>
-    ▪ 31–44 mins: 1,125 (17.65%)<br>
-    ▪ ≥ 45 mins: 3,921 (61.51%)<br>
+    ▪ ≤ 30 mins: 20.85%<br>
+    ▪ 31–44 mins: 17.65%<br>
+    ▪ ≥ 45 mins: 61.51%<br>
 
     <strong>Poverty (FPL)</strong><br>
     ▪ below 50%: 12.35%<br>
@@ -645,17 +645,18 @@ const stationData = {
   ▪ 9.25% Some Other Race<br>
   ▪ 15.91% Hispanic or Latino (of any race)<br>
 
+    <strong>Commute Mode to Work</strong><br>
+  ▪ 38.17% drove alone<br>
+  ▪ 6.39% carpooled<br>
+  ▪ 42.23% took public transit<br>
+  ▪ 7.99% worked at home<br>
+
     <strong>Vehicle Access</strong><br>
   ▪ 26.24% have no vehicles available<br>
 
   <strong>Median Income</strong><br>
   ▪ $92,969<br>
 
-  <strong>Commute Mode to Work</strong><br>
-  ▪ 38.17% drove alone<br>
-  ▪ 6.39% carpooled<br>
-  ▪ 42.23% took public transit<br>
-  ▪ 7.99% worked at home<br>
 
   <strong>Commute Time to Work</strong><br>
   ▪ ≤ 30 mins: 21.53%<br>
@@ -679,17 +680,18 @@ const stationData = {
   ▪ 5.30% Some Other Race<br>
   ▪ 9.03% Hispanic or Latino (of any race)<br>
 
+    <strong>Commute Mode to Work</strong><br>
+  ▪ 37.38% drove alone<br>
+  ▪ 5.16% carpooled<br>
+  ▪ 44.33% took public transit<br>
+  ▪ 8.24% worked at home<br>
+
     <strong>Vehicle Access</strong><br>
   ▪ 27.41% have no vehicles available<br>
 
   <strong>Median Income</strong><br>
   ▪ $91,486<br>
 
-  <strong>Commute Mode to Work</strong><br>
-  ▪ 37.38% drove alone<br>
-  ▪ 5.16% carpooled<br>
-  ▪ 44.33% took public transit<br>
-  ▪ 8.24% worked at home<br>
 
   <strong>Commute Time to Work</strong><br>
   ▪ ≤ 30 mins: 22.20%<br>
@@ -709,18 +711,17 @@ const stationData = {
   <strong>Race / Ethnicity</strong><br>
   ▪ 2.73% White<br>
   ▪ 83.31% Black or African American<br>
-  ▪ 0.08% American Indian & Alaska Native<br>
   ▪ 1.60% Asian<br>
   ▪ 2.32% Some Other Race<br>
   ▪ 5.81% Hispanic or Latino (of any race)<br>
 
-    <strong>Vehicle Access</strong><br>
+      <strong>Vehicle Access</strong><br>
   ▪ 40.78% have no vehicles available<br>
 
   <strong>Median Income</strong><br>
   ▪ $76,607<br>
 
-  <strong>Commute Mode to Work</strong><br>
+    <strong>Commute Mode to Work</strong><br>
   ▪ 35.28% drove alone<br>
   ▪ 4.38% carpooled<br>
   ▪ 51.57% took public transit<br>
@@ -734,8 +735,7 @@ const stationData = {
   <strong>Commute Time to Work</strong><br>
   ▪ ≤ 30 mins: 19.37%<br>
   ▪ 31–44 mins: 28.83%<br>
-  ▪ ≥ 45 mins: 51.80%<br
-
+  ▪ ≥ 45 mins: 51.80%<br>
 `,
 
 "Clarendon Rd - Av D": `
@@ -749,17 +749,18 @@ const stationData = {
   ▪ 3.16% Some Other Race<br>
   ▪ 6.58% Hispanic or Latino (of any race)<br>
 
+    <strong>Commute Mode to Work</strong><br>
+  ▪ 27.90% drove alone<br>
+  ▪ 3.32% carpooled<br>
+  ▪ 56.90% took public transit<br>
+  ▪ 6.16% worked at home<br>
+
     <strong>Vehicle Access</strong><br>
   ▪ 45.54% have no vehicles available<br>
 
   <strong>Median Income</strong><br>
   ▪ $76,607<br>
 
-  <strong>Commute Mode to Work</strong><br>
-  ▪ 27.90% drove alone<br>
-  ▪ 3.32% carpooled<br>
-  ▪ 56.90% took public transit<br>
-  ▪ 6.16% worked at home<br>
 
   <strong>Commute Time to Work</strong><br>
   ▪ ≤ 30 mins: 15.84%<br>
@@ -784,17 +785,17 @@ const stationData = {
   ▪ 4.16% Some Other Race<br>
   ▪ 7.42% Hispanic or Latino (of any race)<br>
 
+    <strong>Commute Mode to Work</strong><br>
+  ▪ 25.14% drove alone<br>
+  ▪ 3.33% carpooled<br>
+  ▪ 54.84% took public transit<br>
+  ▪ 7.71% worked at home<br>
+
     <strong>Vehicle Access</strong><br>
   ▪ 50.86% have no vehicles available<br>
 
   <strong>Median Income</strong><br>
   ▪ $68,494<br>
-
-  <strong>Commute Mode to Work</strong><br>
-  ▪ 25.14% drove alone<br>
-  ▪ 3.33% carpooled<br>
-  ▪ 54.84% took public transit<br>
-  ▪ 7.71% worked at home<br>
 
   <strong>Commute Time to Work</strong><br>
   ▪ ≤ 30 mins: 17.29%<br>
@@ -817,18 +818,17 @@ const stationData = {
   ▪ 5.34% Some Other Race<br>
   ▪ 9.05% Hispanic or Latino (of any race)<br>
 
-    <strong>Commute Mode to Work</strong><br>
-  ▪ 21.53% drove alone<br>
-  ▪ 2.65% carpooled<br>
-  ▪ 59.85% took public transit<br>
-  ▪ 6.09% worked at home<br>
-
-    <strong>Vehicle Access</strong><br>
+      <strong>Vehicle Access</strong><br>
   ▪ 64.81% have no vehicles available<br>
 
   <strong>Median Income</strong><br>
   ▪ $52,697<br>
 
+    <strong>Commute Mode to Work</strong><br>
+  ▪ 21.53% drove alone<br>
+  ▪ 2.65% carpooled<br>
+  ▪ 59.85% took public transit<br>
+  ▪ 6.09% worked at home<br>
 
   <strong>Commute Time to Work</strong><br>
   ▪ ≤ 30 mins: 16.87%<br>
