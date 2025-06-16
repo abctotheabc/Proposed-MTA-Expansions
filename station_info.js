@@ -37,8 +37,7 @@ const stationData = {
     <strong>Median Income</strong><br>
     ▪ $53,108
   `,
-
-  "Linden Blvd": `
+  "Linden Boulevard": `
   <h3>Linden Blvd</h3>
   <em>(residents within 10-min walk)</em><br>
   <strong>Race / Ethnicity</strong><br>
@@ -1672,6 +1671,7 @@ const stationData = {
   ▪ below 150%: 45.74%<br>
   ▪ below 200%: 55.86%<br>
 `,
+"ibx-stations": {
 "Linden Blvd": `
   <h3>Linden Blvd</h3>
   <em>(residents within 10-min walk)</em><br>
@@ -1699,7 +1699,7 @@ const stationData = {
   ▪ below 50%: 9.84%<br>
   ▪ below 150%: 31.72%<br>
   ▪ below 200%: 42.63%<br>
-`,
+`},
 "Remsen Avenue": `
   <h3>Remsen Avenue</h3>
   <em>(residents within 10-min walk)</em><br>
@@ -2124,6 +2124,22 @@ map.on('load', () => {
         ? stationData[name] 
         : `<h3>${name}</h3><p>No data available for this station.</p>`;
 
+        const sourceLine = `
+  <div style="
+    -webkit-column-span: all;
+            column-span: all;
+    width: 100%;
+    text-align: center;
+    font-size: 10px;
+    color: #666;
+    margin-top: 1px;
+    line-height: 1.1;    /* collapse extra leading */
+    padding: 0;
+  ">
+    Source: 2023 ACS 1-Year Estimates
+  </div>
+`;
+
       // 4d) show popup
       currentPopup = new AnimatedPopup({
         offset: 12,
@@ -2131,8 +2147,13 @@ map.on('load', () => {
         closingAnimation:  { duration: 300,  easing: 'easeInBack',    transform: 'scale' }
       })
         .setLngLat(coords)
-        .setHTML(`<button class="mapboxgl-popup-close-button">×</button>${stationHtml}`)
+        .setHTML(`<button class="mapboxgl-popup-close-button">×</button>${stationHtml}${sourceLine}`)
         .addTo(map);
+
+        const popupContent = currentPopup
+  .getElement()
+  .querySelector('.mapboxgl-popup-content');
+popupContent.style.paddingBottom = '4px';
 
       // 4e) cleanup on manual close
       currentPopup.on('close', () => {

@@ -193,9 +193,9 @@ const demographics = {
           <br>
           <strong>Demographics:</strong>
           <ul style="margin-top: 5px;">
-            <li><strong>Population:</strong> ${d.population}</li>
+            <li><strong>Corridor Population:</strong><br> ${d.population}</li>
             <li><strong>Median Household Income:</strong> ${d.income}</li>
-            <li><strong>Households w/ Vehicles:</strong> ${d.vehicles}</li>
+            <li><strong>Households w/ Vehicles:</strong><br> ${d.vehicles}</li>
           </ul>`;
           infoBox.style.maxWidth = '300px';
         infoBody.style.fontSize = '1em';
@@ -265,9 +265,9 @@ const demographics = {
           <br>
           <strong>Demographics:</strong>
           <ul style="margin-top: 5px;">
-            <li><strong>Population:</strong> ${d.population}</li>
+            <li><strong>Corridor Population:</strong><br> ${d.population}</li>
             <li><strong>Median Household Income:</strong> ${d.income}</li>
-            <li><strong>Households w/ Vehicles:</strong> ${d.vehicles}</li>
+            <li><strong>Households w/ Vehicles:</strong><br> ${d.vehicles}</li>
           </ul>`;
           infoBox.style.maxWidth = '300px';
         backBtn.style.display = 'inline-block';

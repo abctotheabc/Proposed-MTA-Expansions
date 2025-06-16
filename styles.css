@@ -64,14 +64,15 @@
       }
       
       .dialog-box {
-        background: url('images/intro_map.png') center center / cover no-repeat;
         background-size: 300%;
-        width: 100%;
-        height: 100%;
+        width: 200%;
+        height: 200%;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         font-family: 'Gotham';
+        padding-left: 5rem;
+        padding-bottom: 1rem;
       }
       
       .intro-text {
@@ -80,10 +81,12 @@
         padding: 15px;
         position: fixed;
         border-radius: 12px;
-        max-width: 350px;
+        max-width: 430px;
+        height: 540px;
         width: 90%;
         box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
         text-align: center;
+        justify-content: center;
         font-family: 'Gotham';
       }
       
@@ -128,6 +131,9 @@
     .intro-left {
       text-align: left;
       flex: 1;
+      margin-bottom: 0;
+      padding: 0;
+      padding-left: 20px;
       font-family: 'Gotham';
     }
     
@@ -135,6 +141,8 @@
       max-width: 160px;
       height: auto;
       display: block;
+      padding-right: 20px;
+      margin-bottom: 0;
     }
     
     #rudin-logo-fixed {
@@ -350,13 +358,16 @@
   background: #2E3A59;       
   color: #F4F4F4;            
   opacity: .95;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
 }
 
 .page-title-inner {
   max-width: 90vw;       
-  margin: 0;         
+  margin: 0;     
+  padding-left: 80px;    
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   vertical-align: middle;
@@ -374,15 +385,26 @@
   color: #F4F4F4;
   vertical-align: middle;
   white-space: nowrap;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
 
 .page-title-inner h2 {
   font-size: clamp(0.75rem, calc(0.5rem + 1vw), 1.5rem);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  vertical-align: middle;
 }
 
 .page-title-inner h4 {
-  font-size: clamp(0.6rem, calc(0.4rem + 0.5vw), 1rem);
+  font-size: clamp(0.8rem, calc(0.4rem + 0.5vw), 1rem);
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  flex-wrap: nowrap;
 }
 
 /* to adjust for smaller screens */
@@ -390,8 +412,9 @@
 @media (max-width: 800px) {
   /* 1) let the inner flex container wrap and stay centered */
   .page-title-inner {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
+    transform: translateX(-5%);
     align-items: center;
     width: 100%;
     margin: 0 auto;        /* keep it centered */
@@ -406,6 +429,52 @@
     white-space: normal;   /* allow wraps */
     margin: 4px 0;         /* small vertical spacing */
     text-align: center;    /* center the text */
+    flex-wrap: nowrap;
+  }
+}
+
+@media (max-width: 532px) {
+  /* 1) let the inner flex container wrap and stay centered */
+  .page-title-inner {
+    flex-wrap: nowrap;
+    transform: translateX(-10%);
+    margin: 0;
+    width: 100%;
+    font-size: clamp(0.4rem, calc(0.3rem + 0.5vw), 1rem);
+    white-space: nowrap;
+  }
+
+  .page-title-inner h2,
+  .page-title-inner h4 {
+    display: block;        /* full‐width block */
+    width: 100%;
+    white-space: normal;   /* allow wraps */
+    text-align: center;    /* center the text */
+    font-size: clamp(0.4rem, calc(0.35rem + 0.5vw), 1rem);
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 471px) {
+  /* 1) let the inner flex container wrap and stay centered */
+  .page-title-inner {
+    flex-wrap: nowrap;
+    justify-content: center;
+    transform: translateX(-10%);
+    margin: 0;
+    width: 100%;
+    font-size: clamp(0.4rem, calc(0.3rem + 0.5vw), 1rem);
+    white-space: nowrap;
+  }
+
+  .page-title-inner h2,
+  .page-title-inner h4 {
+    display: block;        /* full‐width block */
+    width: 100%;
+    white-space: normal;   /* allow wraps */
+    margin: 4px 0;         /* small vertical spacing */
+    text-align: center;    /* center the text */
+    flex-wrap: nowrap;
   }
 }
 
