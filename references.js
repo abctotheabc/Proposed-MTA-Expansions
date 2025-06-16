@@ -29,13 +29,11 @@ map.on('load', () => {
       panel = 1;
       infoTitle.textContent = 'About the Project';
       infoBody.innerHTML = `
-        <p>This interactive tool highlights major proposed subway projects across New York City — including the Interborough Express, Second Avenue Subway, QueensLink, and more. Each route features data-driven context, visuals of walkable access, and insights into demographics, population size, income, and other key metrics for the area around the proposed line.</p>
-        <br>
-        <p>👆 Click a line in the legend to begin exploring and learn more about each project’s vision and footprint. </p>
-                    👆 Click a station on the line to understand more about the population within a ten minute walk of the selected station.
-            <br></br>
-        <br>
-        <p>This map was built with Mapbox GL JS.</p>
+        <p>This interactive tool highlights major proposed subway projects across New York City. Each route features data-driven context, visuals of walkable access, and insights into key metrics for the area around the proposed line. Here’s how to get started:</p>
+
+<p><strong>1.</strong> Select a line by clicking its button in the legend to open three panels: a project overview, a corridor analysis, and a performance score or external evaluation.</p>
+
+  <p><strong>2.</strong> Once a line is active, station names appear on the map. Click a station to open a popup with data and an analysis of residents within the surrounding 10-minute walk area.</p>
 
         <button id="ref-switch" class="info-switch">References</button>
       `;
@@ -55,23 +53,23 @@ map.on('load', () => {
       infoBody.innerHTML = `
         <ul>
       <li>
-        <strong>American Community Survey:</strong>
-        <a href="https://data.census.gov/table/S1903?tid=ACSST1Y2023.S1903" target="_blank">
-          S1903 Median Income in the Past 12 Months (2023 Inflation-Adjusted)
-        </a> — ACS 1-Year Estimates Subject Tables
-      </li>
-      <li>
-        <strong>American Community Survey:</strong>
-        <a href="https://data.census.gov/table/DP05?tid=ACSDP1Y2023.DP05" target="_blank">
-          DP05ACS Demographic and Housing Estimates
-        </a> — ACS 1-Year Data Profiles
-      </li>
-      <li>
-        <strong>American Community Survey:</strong>
-        <a href="https://data.census.gov/table/S2504?tid=ACSST1Y2023.S2504" target="_blank">
-          S2504 Physical Housing Characteristics for Occupied Units
-        </a> — ACS 1-Year Estimates Subject Tables
-      </li>
+        <strong>American Community Survey</strong>
+          <ul>
+        <li><a href="https://data.census.gov/table/S1903?tid=ACSST1Y2023.S1903" target="_blank">
+          S1903 Median Income in the Past 12 Months</li>
+            <li><a href="https://data.census.gov/table/DP05?tid=ACSDP1Y2023.DP05" target="_blank">
+          DP05ACS Demographic and Housing Estimates</li>
+            <li><a href="https://data.census.gov/table/S2504?tid=ACSST1Y2023.S2504" target="_blank">
+          S2504 Physical Housing Characteristics for Occupied Units</li>
+        <li><a href="https://data.census.gov/table/ACSST1Y2023.S0802?q=S0802" target="_blank">
+      S0802 Means of Transportation to Work</li>
+        <li><a href="https://data.census.gov/table/ACSST1Y2023.S1701?q=s1701" target="_blank">
+      S1701 Poverty Status in the Past 12 Months</li>
+        <li><a href="https://data.census.gov/table/ACSDT1Y2023.B08303?q=B08303" target="_blank">
+      B08303 Journey to Work by Means of Transportation</li>
+      </ul>
+    </a>
+  </li>
       <li>
         <strong>TravelTime Plugin:</strong> Plugin ID 1685 — TravelTime API for QGIS
       </li>
@@ -91,6 +89,12 @@ map.on('load', () => {
           NYC Open Data – Subway Lines layer
         </a>
       </li>
+  <li>
+    <strong>MTA 20-Year Needs Assessment:</strong>
+    <a href="https://future.mta.info/documents/20-YearNeedsAssessment_ComparativeEvaluation.pdf" target="_blank">
+      Appendix 06 – Comparative Evaluation
+    </a>
+  </li>
     </ul>
     <button id="about-switch" class="info-switch">About the Project</button>
   `;
