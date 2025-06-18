@@ -109,6 +109,11 @@
         outline-offset: 1px;
         transition: outline-offset 200ms ease;
       }
+
+      .dialog-box:focus-visible {
+        outline: 3px solid #000;
+        outline-offset: 2px;
+      }
       
       .dialog-box button:hover {
         background-color: #9e7dbd;
@@ -207,11 +212,17 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        background: #3498DB;     
-        color: #F4F4F4;          
+        color: #10061f;  
         border: none;
         transition: outline-offset 200ms ease;
-      }
+        font-family: 'GothamBold';
+    }
+
+/* focus‐visible outline for keyboard users */
+.legend-button:focus-visible {
+  outline: 3px solid #000;
+  outline-offset: 2px;
+}
       
     
       /* styling for when you hover over the legend button */

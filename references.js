@@ -19,7 +19,7 @@ map.on('load', () => {
     const aboutBtn = document.createElement('button');
     aboutBtn.id          = 'about-button';
     aboutBtn.className   = 'legend-button about-button';
-    aboutBtn.textContent = 'Project Info/References';
+    aboutBtn.textContent = 'Info/References';
     legend.appendChild(aboutBtn);
   
     let panel = 1;

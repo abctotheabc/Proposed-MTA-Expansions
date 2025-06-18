@@ -122,7 +122,7 @@ map.addSource('secondave_avg', {
         visibility: 'none'
       },
     paint: {
-    'fill-color': '#00add0',     
+    'fill-color': '#008099',     
     'fill-opacity': .2 
     
     }
@@ -141,7 +141,7 @@ map.addSource('uticaavenue_avg', {
         visibility: 'none'
       },
     paint: {
-    'fill-color': '#00933c',     
+    'fill-color': '#00A843',     
     'fill-opacity': .2 
     
     }
@@ -160,7 +160,7 @@ map.addSource('ibxavg', {
         visibility: 'none'
       },
     paint: {
-    'fill-color': '#9b8ed8',     
+    'fill-color': '#B0A4E0',     
     'fill-opacity': .2 
     
     }
@@ -198,7 +198,7 @@ map.addSource('queenslinkavg', {
         visibility: 'none'
       },
     paint: {
-    'fill-color': '#ff6324',     
+    'fill-color': '#FF7B47',     
     'fill-opacity': .2 
     
     }
@@ -236,7 +236,7 @@ map.addSource('flatlands-3-avg', {
         visibility: 'none'
       },
     paint: {
-    'fill-color': '#ee352e',     
+    'fill-color': '#EE362F',     
     'fill-opacity': .2 
     
     }
@@ -260,7 +260,7 @@ map.addSource('ibx-path', {
     type: 'line',
     source: 'ibx-path',
     paint: {
-      'line-color': '#9b8ed8',
+      'line-color': '#B0A4E0',
       'line-width': 3
     }
   });
@@ -270,7 +270,7 @@ map.addSource('ibx-path', {
     type: 'circle',
     source: 'ibx-stations',
     paint: {
-      'circle-color': '#9b8ed8',
+      'circle-color': '#B0A4E0',
       'circle-width': 3,
     }
 });
@@ -295,7 +295,7 @@ map.addSource('ibx-path', {
     type: 'line',
     source: 'queenslink-path',
     paint: {
-      'line-color': '#ff6324',
+      'line-color': '#FF7B47',
       'line-width': 3
     }
   });
@@ -305,7 +305,7 @@ map.addSource('ibx-path', {
     type: 'circle',
     source: 'queenslink-stations',
     paint: {
-      'circle-color': '#ff6324',
+      'circle-color': '#FF7B47',
       'circle-width': 3
     }
   });
@@ -368,7 +368,7 @@ map.addSource('ibx-path', {
         type: 'line',
         source: 'uticaavenue-path',
         paint: {
-          'line-color': '#00933c',
+          'line-color': '#00A843',
           'line-width': 3
         }
       });
@@ -378,7 +378,7 @@ map.addSource('ibx-path', {
         type: 'circle',
         source: 'uticaavenue-stations',
         paint: {
-          'circle-color': '#00933c',
+          'circle-color': '#00A843',
           'circle-width': 3
         }
       });
@@ -482,7 +482,7 @@ map.addSource('ibx-path', {
         type: 'line',
         source: 'flatlands-3-path',
         paint: {
-          'line-color': '#ee352e',
+          'line-color': '#EE362F',
           'line-width': 3
         }
       });
@@ -492,7 +492,7 @@ map.addSource('ibx-path', {
         type: 'circle',
         source: 'flatlands-3-stations',
         paint: {
-          'circle-color': '#ee352e',
+          'circle-color': '#EE362F',
           'circle-width': 3
         }
       });
@@ -636,13 +636,13 @@ function resetMapOverlays() {
 
 // legend with labels to click to animate
 const legendItems = [
-    { id: 'ibx-path', label: 'Interborough Express', color: '#9b8ed8' },
-    { id: 'uticaavenue-path', label: 'Utica Avenue Line', color: '#00933c' },
+    { id: 'ibx-path', label: 'Interborough Express', color: '#B0A4E0' },
+    { id: 'uticaavenue-path', label: 'Utica Avenue Line', color: '#00A843' },
     { id: 'secondavenue-path', label: 'Second Avenue Subway', color: '#00add0' },
-    { id: 'flatlands-3-path', label: '3 Ext. to Flatlands', color: '#ee352e' },
+    { id: 'flatlands-3-path', label: '3 Ext. to Flatlands', color: '#EE362F' },
     { id: 'redhook-w-path', label: 'W Ext. to Red Hook', color: '#fccc0a' },
     { id: 'tribx-path', label: 'The Triboro', color: '#fbae34' },
-    { id: 'queenslink-path', label: 'QueensLink', color: '#ff6324' }
+    { id: 'queenslink-path', label: 'QueensLink', color: '#FF7B47' }
   ];
 
   const legendContainer = document.createElement('div');
